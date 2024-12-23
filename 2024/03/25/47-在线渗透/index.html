@@ -1,0 +1,194 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-CN"><head><meta charset="UTF-8"><title>在线渗透工具包</title><meta name="description" content="黑客常用工具"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><script>var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?" + '011aebf2f9f9f3201930e159bcd66b17';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();</script><!-- End Baidu Analytics --><link rel="icon" href="https://pic.imgdb.cn/item/6639fa110ea9cb14038250f2.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="收藏网址:yancy77.cn 不定期更新各种资源哦~
+工具包介绍https://github.com/CuriousLearnerDev/Online_tools
+下载链接:https://github.com/CuriousLearnerDev/Online_tools/releases/tag/0.6.0
+
+该工具是一个类似软件商城的工具可以进行工具下载，工具的卸载，工具的更新，工具编写了自动化的安装脚本，不用担心工具跑不起来
+
+工具大小这个版本主要是界面的更改和添加了，就是把0.4.0和0.5.0的界面进行了整合
+现在原代码大概一万行左右最终打包和之前差不多12MB比之前少了几百kb左右
+
+新版本界面
+打包离线版本的方法工具和启动环境都会下载到storage文件夹里面，把这三文件夹压缩就就可以了，到.."><meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="杨CC的工具集合" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">疯狂的杨CC's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">在线渗透工具包</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%8C%85%E4%BB%8B%E7%BB%8D"><span class="toc-text">工具包介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%B0%8F"><span class="toc-text">工具大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E7%89%88%E6%9C%AC%E7%95%8C%E9%9D%A2"><span class="toc-text">新版本界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E7%A6%BB%E7%BA%BF%E7%89%88%E6%9C%AC%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">打包离线版本的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E5%B7%A5%E5%85%B7"><span class="toc-text">更新工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%8A%9F%E8%83%BD%E6%B7%BB%E5%8A%A0"><span class="toc-text">新功能添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%BC%8F"><span class="toc-text">切换使用模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B7%A5%E5%85%B7%E6%98%BE%E7%A4%BA"><span class="toc-text">全工具显示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%88%86%E7%B1%BB%E6%98%BE%E7%A4%BA"><span class="toc-text">工具分类显示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-text">查看工具的介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%AE%B1%E9%87%8C%E9%9D%A2%E7%9A%84%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="toc-text">工具箱里面的工具下载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A6%96%E6%AC%A1%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7%E7%9A%84%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B%E5%92%8C%E8%AF%B4%E6%98%8E"><span class="toc-text">首次安装工具的整个过程和说明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%AE%B1%E9%87%8C%E9%9D%A2%E7%9A%84%E5%B7%A5%E5%85%B7%E6%9B%B4%E6%96%B0"><span class="toc-text">工具箱里面的工具更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%9A%84%E5%8D%B8%E8%BD%BD"><span class="toc-text">工具的卸载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B7%A5%E5%85%B7"><span class="toc-text">添加自己的自定义工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%B7%A5%E5%85%B7%E5%90%8D%E7%A7%B0%EF%BC%9A"><span class="toc-text">1、第一个工具名称：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%B7%A5%E5%85%B7%E6%98%BE%E7%A4%BA%E4%BD%8D%E7%BD%AE%EF%BC%9A"><span class="toc-text">2、第二个工具显示位置：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%B7%A5%E5%85%B7%E5%9B%BE%E6%A0%87%EF%BC%9A"><span class="toc-text">3、第三个工具图标：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81%E7%AC%AC%E5%9B%9B%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%90%AF%E5%8A%A8%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="toc-text">4、第四个程序启动的文件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81%E7%AC%AC%E4%BA%94%E4%B8%AA%E5%B7%A5%E5%85%B7%E7%89%88%E6%9C%AC%EF%BC%9A"><span class="toc-text">5、第五个工具版本：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6%E3%80%81%E7%AC%AC%E5%85%AD%E4%B8%AA%E9%80%89%E6%8B%A9%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83"><span class="toc-text">6、第六个选择启动环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7%E3%80%81%E7%AC%AC%E4%B8%83%E4%B8%AA%E9%80%89%E6%8B%A9%E6%98%BE%E7%A4%BA%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="toc-text">7、第七个选择显示方式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8%E3%80%81%E7%AC%AC%E5%85%AB%E4%B8%AA%E6%B7%BB%E5%8A%A0%E5%8F%82%E6%95%B0"><span class="toc-text">8、第八个添加参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B7%BB%E5%8A%A0%E5%B7%A5%E5%85%B7%E7%9A%84%E6%A1%88%E4%BE%8B"><span class="toc-text">自定义添加工具的案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B7%BB%E5%8A%A0%E7%9A%84%E5%B7%A5%E5%85%B7%E5%8D%B8%E8%BD%BD"><span class="toc-text">自定义添加的工具卸载</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%9A%84%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD"><span class="toc-text">工具的搜索功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%95%8C%E9%9D%A2%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="toc-text">工具界面的修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84"><span class="toc-text">打开工具的安装路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E7%89%88%E6%9C%AC%E6%A3%80%E6%9F%A5"><span class="toc-text">在线版本检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%BD%91%E7%9B%98%E6%A3%80%E6%9F%A5"><span class="toc-text">工具网盘检查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0-5-0%E5%85%AC%E6%B5%8B%E7%89%88%E6%9C%AC%E6%96%B0%E5%8A%9F%E8%83%BD%E6%B7%BB%E5%8A%A0"><span class="toc-text">0.5.0公测版本新功能添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E6%96%B0%E5%B7%A5%E5%85%B7"><span class="toc-text">增加新工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-text">更新了什么</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90"><i class="tag post-item-tag">渗透工具推荐</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">在线渗透工具包</h1><time class="has-text-grey" datetime="2024-03-25T08:14:46.000Z">2024-03-25</time><article class="mt-2 post-content"><p>收藏网址:yancy77.cn 不定期更新各种资源哦~</p>
+<h2 id="工具包介绍"><a href="#工具包介绍" class="headerlink" title="工具包介绍"></a>工具包介绍</h2><p><a href="https://github.com/CuriousLearnerDev/Online_tools">https://github.com/CuriousLearnerDev/Online_tools</a></p>
+<p>下载链接:<br><a href="https://github.com/CuriousLearnerDev/Online_tools/releases/tag/0.6.0">https://github.com/CuriousLearnerDev/Online_tools/releases/tag/0.6.0</a></p>
+<blockquote>
+<p>该工具是一个类似软件商城的工具可以进行工具下载，工具的卸载，工具的更新，工具编写了自动化的安装脚本，不用担心工具跑不起来</p>
+</blockquote>
+<h2 id="工具大小"><a href="#工具大小" class="headerlink" title="工具大小"></a>工具大小</h2><p>这个版本主要是界面的更改和添加了，就是把0.4.0和0.5.0的界面进行了整合</p>
+<p>现在原代码大概一万行左右最终打包和之前差不多12MB比之前少了几百kb左右</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209130417556.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209130417556.png" alt="image-20231209130417556"></a></p>
+<h2 id="新版本界面"><a href="#新版本界面" class="headerlink" title="新版本界面"></a>新版本界面</h2><p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209124940675.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209124940675.png" alt="image-20231209124940675"></a></p>
+<h2 id="打包离线版本的方法"><a href="#打包离线版本的方法" class="headerlink" title="打包离线版本的方法"></a>打包离线版本的方法</h2><p>工具和启动环境都会下载到<code>storage</code>文件夹里面，把这三文件夹压缩就就可以了，到其他系统不需要在从工具箱里面的工具了</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20230528074624279.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20230528074624279.png" alt="image-20230528074624279"></a></p>
+<h2 id="更新工具"><a href="#更新工具" class="headerlink" title="更新工具"></a>更新工具</h2><p>如果下载了之前版本要更新使用0.5.0版本，把0.5.0版本的文件覆盖之前版本文件就可以了，就可以直接使用0.5.0版本了</p>
+<p>覆盖就可以了</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231029210044074.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231029210044074.png" alt="image-20231029210044074"></a></p>
+<h2 id="新功能添加"><a href="#新功能添加" class="headerlink" title="新功能添加"></a>新功能添加</h2><p>1、修复下载文件错位问题</p>
+<p>2、这个版本更新功能</p>
+<ul>
+<li>更换使用模式 全工具显示 模式 工具分类显示 模式</li>
+<li>每次打开工具都弹窗提示，改成每天就弹窗一次 （因为每次打开工具都要弹窗真的很烦人！）</li>
+</ul>
+<h2 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h2><p>现在工具的功能有的多，我这边还是出一个工具的使用教程吧</p>
+<h3 id="切换使用模式"><a href="#切换使用模式" class="headerlink" title="切换使用模式"></a>切换使用模式</h3><p><a href="https://camo.githubusercontent.com/8b7ec059fab189fe0c6db9752ea2d1c56491339b0cfc46f944868e68259ebf94/68747470733a2f2f7a73736e702d313330313630363034392e636f732e61702d6e616e6a696e672e6d7971636c6f75642e636f6d2f696d672f696d6167652d32303234303132383131333635393337352e706e67"><img src="https://camo.githubusercontent.com/8b7ec059fab189fe0c6db9752ea2d1c56491339b0cfc46f944868e68259ebf94/68747470733a2f2f7a73736e702d313330313630363034392e636f732e61702d6e616e6a696e672e6d7971636c6f75642e636f6d2f696d672f696d6167652d32303234303132383131333635393337352e706e67" alt="image-20240128113659375"></a></p>
+<h4 id="全工具显示"><a href="#全工具显示" class="headerlink" title="全工具显示"></a>全工具显示</h4><p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209104240881.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209104240881.png" alt="image-20231209104240881"></a></p>
+<h4 id="工具分类显示"><a href="#工具分类显示" class="headerlink" title="工具分类显示"></a>工具分类显示</h4><p><a href="https://camo.githubusercontent.com/dd29e4fc333d3585a953e07d04e366be6cbf46880168a5942220e15a1b51d790/68747470733a2f2f7a73736e702d313330313630363034392e636f732e61702d6e616e6a696e672e6d7971636c6f75642e636f6d2f696d672f696d6167652d32303234303132383131333733303037332e706e67"><img src="https://camo.githubusercontent.com/dd29e4fc333d3585a953e07d04e366be6cbf46880168a5942220e15a1b51d790/68747470733a2f2f7a73736e702d313330313630363034392e636f732e61702d6e616e6a696e672e6d7971636c6f75642e636f6d2f696d672f696d6167652d32303234303132383131333733303037332e706e67" alt="image-20240128113730073"></a></p>
+<h3 id="查看工具的介绍"><a href="#查看工具的介绍" class="headerlink" title="查看工具的介绍"></a>查看工具的介绍</h3><p>这个版本查看工具的介绍和上个版本有差别，这个是叫鼠标放到工具的名字是查看工具的介绍</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209104648586.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209104648586.png" alt="image-20231209104648586"></a></p>
+<h3 id="工具箱里面的工具下载"><a href="#工具箱里面的工具下载" class="headerlink" title="工具箱里面的工具下载"></a>工具箱里面的工具下载</h3><p>点击要下载的工具</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209104835982.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209104835982.png" alt="image-20231209104835982"></a></p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209105346328.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209105346328.png" alt="image-20231209105346328"></a></p>
+<p>安装完成</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209110522440.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209110522440.png" alt="image-20231209110522440"></a></p>
+<p>我们就可以添加图标运行工具了</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209110607093.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209110607093.png" alt="image-20231209110607093"></a></p>
+<h4 id="首次安装工具的整个过程和说明"><a href="#首次安装工具的整个过程和说明" class="headerlink" title="首次安装工具的整个过程和说明"></a>首次安装工具的整个过程和说明</h4><p>工具在没有安装的情况下图标是灰色加上下载图标</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209104240881.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209104240881.png" alt="image-20231209104240881"></a></p>
+<p>我们可以点击图标下载工具，下面我就下载一个sqlmap进行演示</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209104835982.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209104835982.png" alt="image-20231209104835982"></a></p>
+<p>这边会下载和压缩安装</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209105001800.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209105001800.png" alt="image-20231209105001800"></a></p>
+<p>然后首次安装python相关运行环境的工具，比如我们下载的sqlmap他会自动检测这个是否下载了python（这个运行环境是在工具内部的运行环境不会和系统变量冲突放心下载），然后会如下提示，我们这边需要下载，然后是其他的需要java的运行环境如果是首次下载工具也会自动检测下载java工具的相关版本</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209105346328.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209105346328.png" alt="image-20231209105346328"></a></p>
+<p>这个然后就开始下载工具内部的python运行环境了</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209105522422.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209105522422.png" alt="image-20231209105522422"></a></p>
+<p>然后全部都没有检查安装到运行环境</p>
+<p>我们可以选择手动安装工具内部的运行环境</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209110204524.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209110204524.png" alt="image-20231209110204524"></a></p>
+<h3 id="工具箱里面的工具更新"><a href="#工具箱里面的工具更新" class="headerlink" title="工具箱里面的工具更新"></a>工具箱里面的工具更新</h3><p>如果有工具更新了，我们可以进行工具的更新</p>
+<p>点击下面下面这个更新，这个和上个版本有改动，上个版本有两个选项，上个版本有人说工具箱里面的工具不会更新，我就把两个选项变成了这个一个</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209111345509.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209111345509.png" alt="image-20231209111345509"></a></p>
+<p>如果有工具的更新，会出现下面的情况，自动刷新界面更新</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209111448805.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209111448805.png" alt="image-20231209111448805"></a></p>
+<h3 id="工具的卸载"><a href="#工具的卸载" class="headerlink" title="工具的卸载"></a>工具的卸载</h3><p>工具的卸载我这边就随便写了一下反正很丑</p>
+<p>比如我卸载sqlmap</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209112131528.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209112131528.png" alt="image-20231209112131528"></a></p>
+<p>然后成功被卸载</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209112233234.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209112233234.png" alt="image-20231209112233234"></a></p>
+<p>有一点卸载不掉的情况就是你正在运行这个工具是卸载不掉的</p>
+<p>如：</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209112456624.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209112456624.png" alt="image-20231209112456624"></a></p>
+<h3 id="添加自己的自定义工具"><a href="#添加自己的自定义工具" class="headerlink" title="添加自己的自定义工具"></a>添加自己的自定义工具</h3><p>这个功能我是真的写浪费了我一个周六周日周末的时间写出来的功能，真的要多多支持呀</p>
+<p>下面我就详细说一下这个功能的使用</p>
+<p>界面依旧很丑！</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/zss.exe"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/zss.exe" alt="image-20231209114217925"></a></p>
+<p>我们随便点击一个添加按钮，如果我点击了是那个按钮就会自定义工具添加到选择的一行里面</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209114353122.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209114353122.png" alt="image-20231209114353122"></a></p>
+<ul>
+<li>第一个工具名称：这个没有什么好说的就是添加的工具名称</li>
+<li>第二个工具显示位置：我们叫图标的显示的位置</li>
+<li>第三个工具图标：这个也没有什么好说的就是工具的图标</li>
+<li>第四个程序启动的文件：我们的启动程序的文件</li>
+<li>第六个选择启动环境：就是启动程序的需要的环境，这个一共有4个选择可以选择python3.8、JDK8、JDK20、无需环境这几个选项（使用的是工具内部的环境然后没有安装会自动下载）</li>
+<li>第七个选择显示方式：这个就是你选择的工具的启动模式，然后是图形界面的就选择图形界面的，如果是命令行的就选择命令行的</li>
+<li>第八个添加参数：这个就是我们运行的后面的参数，比如我们运行一个nmap -h，这个-h就是我们添加的默认启动的参数</li>
+</ul>
+<p>下面是详细的说明</p>
+<h4 id="1、第一个工具名称："><a href="#1、第一个工具名称：" class="headerlink" title="1、第一个工具名称："></a>1、第一个工具名称：</h4><p>这个没有什么好说的就是添加的工具名称</p>
+<h4 id="2、第二个工具显示位置："><a href="#2、第二个工具显示位置：" class="headerlink" title="2、第二个工具显示位置："></a>2、第二个工具显示位置：</h4><p>这个我演示一下应该就可以明白了</p>
+<p>比如我添加一个工具位置是1</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209114852295.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209114852295.png" alt="image-20231209114852295"></a></p>
+<p>然后这个工具是在这</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209114921894.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209114921894.png" alt="image-20231209114921894"></a></p>
+<p>然后我添加一个大于等于2的位置他就会下面这样</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209115044884.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209115044884.png" alt="image-20231209115044884"></a></p>
+<p>然后这个工具的位置就变成了这样</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209115215153.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209115215153.png" alt="image-20231209115215153"></a></p>
+<h4 id="3、第三个工具图标："><a href="#3、第三个工具图标：" class="headerlink" title="3、第三个工具图标："></a>3、第三个工具图标：</h4><p>这个也没有什么好说的就是工具的图标</p>
+<h4 id="4、第四个程序启动的文件："><a href="#4、第四个程序启动的文件：" class="headerlink" title="4、第四个程序启动的文件："></a>4、第四个程序启动的文件：</h4><p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209120224387.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209120224387.png" alt="image-20231209120224387"></a></p>
+<p>这个启动是文件就是然后你是比如sqlmapq启动文件就是如下</p>
+<p>下面就是sqlmap的启动文件</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209115717673.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209115717673.png" alt="image-20231209115717673"></a></p>
+<p>在如果比如是冰蝎工具</p>
+<p>下面是他的启动文件</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209115839323.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209115839323.png" alt="image-20231209115839323"></a></p>
+<p>在在如果是goby</p>
+<p>下面是他的启动文件</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209120015171.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209120015171.png" alt="image-20231209120015171"></a></p>
+<h4 id="5、第五个工具版本："><a href="#5、第五个工具版本：" class="headerlink" title="5、第五个工具版本："></a>5、第五个工具版本：</h4><p>这个也没有什么好说的就是工具的版本</p>
+<p>下面这个输入什么图标版本就显示什么</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209120413443.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209120413443.png" alt="image-20231209120413443"></a></p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209120449061.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209120449061.png" alt="image-20231209120449061"></a></p>
+<h4 id="6、第六个选择启动环境"><a href="#6、第六个选择启动环境" class="headerlink" title="6、第六个选择启动环境"></a>6、第六个选择启动环境</h4><p>这个一共有4个选择可以选择python3.8、JDK8、JDK20、无需环境这几个选项</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209120819600.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209120819600.png" alt="image-20231209120819600"></a></p>
+<p>这个选择如果你是sqlmap这样的python的运行环境你就选择运行环境</p>
+<p>运行自定义工具的简单原理就是这样 python运行地址加工具运行地址</p>
+<p>图片</p>
+<p><a href="https://camo.githubusercontent.com/ffde590d92a8ac55a5f083afe0d2721111a06a0ce9aef5674722b06449b7b57d/68747470733a2f2f7a73736e702d313330313630363034392e636f732e61702d6e616e6a696e672e6d7971636c6f75642e636f6d2f696d672f696d6167652d32303233313230393132313334343539352e706e67"><img src="https://camo.githubusercontent.com/ffde590d92a8ac55a5f083afe0d2721111a06a0ce9aef5674722b06449b7b57d/68747470733a2f2f7a73736e702d313330313630363034392e636f732e61702d6e616e6a696e672e6d7971636c6f75642e636f6d2f696d672f696d6167652d32303233313230393132313334343539352e706e67" alt="image-20231209121344595"></a></p>
+<p>在运行源码层面上其实比这个复杂一点，如果是命令行程序会生成一个一个start的文件夹然后在创建一个文件里面会生成一个工具的启动文件，你们用户就不用了考虑怎么多选择就完事了，GUI点点就完事了</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209121613163.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209121613163.png" alt="image-20231209121613163"></a></p>
+<h4 id="7、第七个选择显示方式："><a href="#7、第七个选择显示方式：" class="headerlink" title="7、第七个选择显示方式："></a>7、第七个选择显示方式：</h4><p>这个就是你选择的工具的启动模式，如果是图形界面的就选择图形界面的，如果是命令行的就选择命令行的</p>
+<h4 id="8、第八个添加参数"><a href="#8、第八个添加参数" class="headerlink" title="8、第八个添加参数"></a>8、第八个添加参数</h4><p>这个就是我们运行的后面的参数，比如我们运行一个nmap -h，这个-h就是我们添加的默认启动的参数（可以忽略不加也可以）</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209122156799.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209122156799.png" alt="image-20231209122156799"></a></p>
+<p>简单大概下面这样</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209122106196.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209122106196.png" alt="image-20231209122106196"></a></p>
+<h4 id="自定义添加工具的案例"><a href="#自定义添加工具的案例" class="headerlink" title="自定义添加工具的案例"></a>自定义添加工具的案例</h4><p>我们还是那sqlmap做演示</p>
+<p>我在github叫sqlmap下载下来然后解压出来了，在<code>C:\sqlmap-master</code></p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209132442416.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209132442416.png" alt="image-20231209132442416"></a></p>
+<p>然后添加就这样添加</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209132711891.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209132711891.png" alt="image-20231209132711891"></a></p>
+<p>添加完成这个就显示了</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209132744269.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209132744269.png" alt="image-20231209132744269"></a></p>
+<p>我们就可以点击运行了</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209132829235.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209132829235.png" alt="image-20231209132829235"></a></p>
+<h4 id="自定义添加的工具卸载"><a href="#自定义添加的工具卸载" class="headerlink" title="自定义添加的工具卸载"></a>自定义添加的工具卸载</h4><p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209132951085.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209132951085.png" alt="image-20231209132951085"></a></p>
+<h3 id="工具的搜索功能"><a href="#工具的搜索功能" class="headerlink" title="工具的搜索功能"></a>工具的搜索功能</h3><blockquote>
+<p>这个搜索功能不支持自定义工具的搜索</p>
+</blockquote>
+<p>这个工具搜索功能是为了解决工具箱工具找不到的尴尬问题</p>
+<p>可以按<code>alt+d</code>键快速弹出，工具搜索</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209111710128.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209111710128.png" alt="image-20231209111710128"></a></p>
+<p>或者是点击这个地方</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/zss.exe">https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/zss.exe</a></p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/zss.exe">https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/zss.exe</a></p>
+<p>在或者点击这个地方，进行工具的搜索</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209111854662.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209111854662.png" alt="image-20231209111854662"></a></p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209111738648.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209111738648.png" alt="image-20231209111738648"></a></p>
+<h3 id="工具界面的修改"><a href="#工具界面的修改" class="headerlink" title="工具界面的修改"></a>工具界面的修改</h3><p>这个是解决有的屏幕分辨率小的问题的，和设置一些自定义主题的人群（工具界面太丑了设置什么样的主题也丑！）</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209112739162.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209112739162.png" alt="image-20231209112739162"></a></p>
+<p>我们可以设置一些工具的分辨率图标大小主题什么的</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209112801123.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209112801123.png" alt="image-20231209112801123"></a></p>
+<p>里面有两个地方可能有用户不懂我这边演示一下</p>
+<ol>
+<li><p>第一个就是工具的间距</p>
+<p>比如我设置50</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209112952019.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209112952019.png" alt="image-20231209112952019"></a></p>
+<p>就变成了下面的效果</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209113100843.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209113100843.png" alt="image-20231209113100843"></a></p>
+</li>
+<li><p>名字换行</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209113231237.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209113231237.png" alt="image-20231209113231237"></a></p>
+<p>13个字符自动换行</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209113209574.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209113209574.png" alt="image-20231209113209574"></a></p>
+</li>
+</ol>
+<h3 id="打开工具的安装路径"><a href="#打开工具的安装路径" class="headerlink" title="打开工具的安装路径"></a>打开工具的安装路径</h3><p>这个其实就是我们下载工具和运行环境安装的路径</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209113416680.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209113416680.png" alt="image-20231209113416680"></a></p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209113436722.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209113436722.png" alt="image-20231209113436722"></a></p>
+<h3 id="在线版本检查"><a href="#在线版本检查" class="headerlink" title="在线版本检查"></a>在线版本检查</h3><p>这个基本上没有啥用了，之前是为了点击更新工具箱，实现起来比较麻烦就没有更新这个功能，只能查看新版本更新了什么功能</p>
+<h3 id="工具网盘检查"><a href="#工具网盘检查" class="headerlink" title="工具网盘检查"></a>工具网盘检查</h3><p>这个是解决我们下载工具的时候，网盘出现了问题可能就会导致工具下载不了的情况，就写了一个网盘工具检查的功能，检查工具在网盘里面的状况</p>
+<p><a href="https://github.com/CuriousLearnerDev/Online_tools/blob/master/Explanationphoto/image-20231209113805633.png"><img src="https://github.com/CuriousLearnerDev/Online_tools/raw/master/Explanationphoto/image-20231209113805633.png" alt="image-20231209113805633"></a></p>
+<h2 id="0-5-0公测版本新功能添加"><a href="#0-5-0公测版本新功能添加" class="headerlink" title="0.5.0公测版本新功能添加"></a>0.5.0公测版本新功能添加</h2><h2 id="增加新工具"><a href="#增加新工具" class="headerlink" title="增加新工具"></a>增加新工具</h2><ul>
+<li>yakit</li>
+<li>SBSCAN</li>
+</ul>
+<h2 id="更新了什么"><a href="#更新了什么" class="headerlink" title="更新了什么"></a>更新了什么</h2><p>这个版本更新很多功能，下面我就说一下改动比较大的一些功能</p>
+<ul>
+<li>自定义工具添加</li>
+<li>改成了点击图标启动工具，下载工具，更新工具</li>
+<li>添加自定义界面的设置</li>
+<li>全局快捷键工具的搜索，可以按<code>alt+d</code>键快速弹出</li>
+<li>下载卸载更新添加自动刷新界面</li>
+<li>代码的运行优化</li>
+</ul>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2024/03/27/17-HuGo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" title="使用Hugo框架,从0搭建自己的博客"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">上一页: 使用Hugo框架,从0搭建自己的博客</span></a><a class="button is-default" href="/2024/03/22/13-Dude%20Suite/" title="Dude Suite Web 渗透测试工具集"><span class="has-text-weight-semibold">下一页: Dude Suite Web 渗透测试工具集</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="Haojen/Claudia-theme-blog" src="https://utteranc.es/client.js" issue-term="pathname" theme="preferred-color-scheme"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/Sgyling"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> 疯狂的杨CC 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-CN"><head><meta charset="UTF-8"><title>Hexo框架-搭建博客(部署服务器)</title><meta name="description" content="黑客常用工具"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><script>var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?" + '011aebf2f9f9f3201930e159bcd66b17';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();</script><!-- End Baidu Analytics --><link rel="icon" href="https://pic.imgdb.cn/item/6639fa110ea9cb14038250f2.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="Hexo框架-搭建博客(部署服务器)官方网站:12345https://hexo.io/  #hexo官网https://hexo.io/zh-cn/docs/ #hexo文档https://hexo.io/zh-cn/api/ #Hexo API 页面https://hexo.io/plugins/ #Hexo 插件页面https://hexo.io/themes/ #Hexo 主题页面
+
+
+
+什么是 Hexo？Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他标记语言）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+
+
+安装安装 Hexo 只需几分钟时间，若您在安装过程中遇到问题或无法找到解决方式，请 提交问题，我们会尽力解决您的问题。
+安装前提安装 Hexo 相.."><meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="杨CC的工具集合" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">疯狂的杨CC's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Hexo框架-搭建博客(部署服务器)</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo%E6%A1%86%E6%9E%B6-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">Hexo框架-搭建博客(部署服务器)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E7%BD%91%E7%AB%99"><span class="toc-text">官方网站:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Hexo%EF%BC%9F"><span class="toc-text">什么是 Hexo？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%89%8D%E6%8F%90"><span class="toc-text">安装前提</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Git"><span class="toc-text">安装 Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Node-js"><span class="toc-text">安装 Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js%E5%AE%98%E7%BD%91"><span class="toc-text">Node.js官网:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Node-js-ubuntu-Debian%E7%B3%BB%E5%88%97%E5%AE%89%E8%A3%85"><span class="toc-text">Node.js-ubuntu-Debian系列安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Ubuntu"><span class="toc-text">使用Ubuntu</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A5-root-%E8%BA%AB%E4%BB%BD%E4%BD%BF%E7%94%A8-Debian"><span class="toc-text">以 root 身份使用 Debian</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Node-js-centos-radhat%E7%B3%BB%E5%88%97%E5%AE%89%E8%A3%85-%E4%B8%8D%E6%94%AF%E6%8C%817"><span class="toc-text">Node.js-centos\radhat系列安装(不支持7)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPM-%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E"><span class="toc-text">RPM 安装说明</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%9C%E4%B8%BAroot%E7%94%A8%E6%88%B7"><span class="toc-text">作为root用户</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89root%E6%9D%83%E9%99%90"><span class="toc-text">没有root权限</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="toc-text">安装 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-text">进阶安装和使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js-%E7%89%88%E6%9C%AC%E9%99%90%E5%88%B6"><span class="toc-text">Node.js 版本限制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-%E5%BB%BA%E7%AB%99"><span class="toc-text">hexo-建站</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#config-yml"><span class="toc-text">_config.yml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E8%AF%B4%E6%98%8E"><span class="toc-text">配置信息说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#package-json"><span class="toc-text">package.json</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="toc-text">运行命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="toc-text">#生成静态文件:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4-1"><span class="toc-text">运行命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deploy-%E9%83%A8%E7%BD%B2"><span class="toc-text">deploy-部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clean-%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98"><span class="toc-text">clean-清理缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="toc-text">更换主题:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B"><span class="toc-text">安装教程:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0"><span class="toc-text">添加文章:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%95%BF%E6%9C%9F%E8%BF%90%E8%A1%8C"><span class="toc-text">在服务器长期运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8pm2%E7%AE%A1%E7%90%86%E8%BF%9B%E7%A8%8B%E8%AE%A9-hexo-%E5%8D%9A%E5%AE%A2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%8F%B0%E8%B7%91%E8%B5%B7%E6%9D%A5"><span class="toc-text">1.用pm2管理进程让 hexo 博客在服务器后台跑起来</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E6%8F%90%E7%A4%BA%E7%BC%BA%E5%B0%91%E6%96%87%E4%BB%B6"><span class="toc-text">4.提示缺少文件</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98%E5%B9%B6%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%84%9A%E6%9C%AC"><span class="toc-text">自动清理缓存并生成静态文件脚本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text"></span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/%E6%95%99%E7%A8%8B"><i class="tag post-item-tag">教程</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">Hexo框架-搭建博客(部署服务器)</h1><time class="has-text-grey" datetime="2024-03-02T08:14:46.000Z">2024-03-02</time><article class="mt-2 post-content"><h1 id="Hexo框架-搭建博客-部署服务器"><a href="#Hexo框架-搭建博客-部署服务器" class="headerlink" title="Hexo框架-搭建博客(部署服务器)"></a>Hexo框架-搭建博客(部署服务器)</h1><h2 id="官方网站"><a href="#官方网站" class="headerlink" title="官方网站:"></a>官方网站:</h2><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://hexo.io/  #hexo官网</span><br><span class="line">https://hexo.io/zh-cn/docs/ #hexo文档</span><br><span class="line">https://hexo.io/zh-cn/api/ #Hexo API 页面</span><br><span class="line">https://hexo.io/plugins/ #Hexo 插件页面</span><br><span class="line">https://hexo.io/themes/ #Hexo 主题页面</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title="什么是 Hexo？"></a>什么是 Hexo？</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="http://daringfireball.net/projects/markdown/">Markdown</a>（或其他标记语言）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<iframe src="https://www.youtube.com/embed/PsXWbI2Mqu0" frameborder="0" loading="lazy" allowfullscreen="" style="box-sizing: inherit; margin: 1em 0px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; font-size: 15px; vertical-align: baseline;"></iframe>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装 Hexo 只需几分钟时间，若您在安装过程中遇到问题或无法找到解决方式，请 <a href="https://github.com/hexojs/hexo/issues">提交问题</a>，我们会尽力解决您的问题。</p>
+<h3 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h3><p>安装 Hexo 相当简单，只需要先安装下列应用程序即可：</p>
+<ul>
+<li><a href="http://nodejs.org/">Node.js</a> (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)</li>
+<li><a href="http://git-scm.com/">Git</a></li>
+</ul>
+<p>如果您的电脑中已经安装上述必备程序，那么恭喜您！你可以直接前往 <a href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85-Hexo">安装 Hexo</a> 步骤。</p>
+<p>如果您的电脑中尚未安装所需要的程序，请根据以下安装指示完成安装。</p>
+<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><ul>
+<li>Windows：下载并安装 <a href="https://git-scm.com/download/win">git</a>。</li>
+<li>Mac：使用 <a href="http://mxcl.github.com/homebrew/">Homebrew</a>, <a href="http://www.macports.org/">MacPorts</a> 或者下载 <a href="http://sourceforge.net/projects/git-osx-installer/">安装程序</a>。</li>
+<li>Linux (Ubuntu, Debian)：<code>sudo apt-get install git-core</code></li>
+<li>Linux (Fedora, Red Hat, CentOS)：<code>sudo yum install git-core</code></li>
+</ul>
+<blockquote>
+<p>Mac 用户</p>
+<p>如果在编译时可能会遇到问题，请先到 App Store 安装 Xcode，Xcode 完成后，启动并进入 <strong>Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install</strong> 安装命令行工具。</p>
+</blockquote>
+<blockquote>
+<p>Windows 用户</p>
+<p>对于中国大陆地区用户，可以前往 <a href="https://npmmirror.com/mirrors/git-for-windows/">淘宝 Git for Windows 镜像</a> 下载 git 安装包。</p>
+</blockquote>
+<h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p>Node.js 为大多数平台提供了官方的 <a href="https://nodejs.org/zh-cn/download/">安装程序</a>。对于中国大陆地区用户，可以前往 <a href="https://npmmirror.com/mirrors/node/">淘宝 Node.js 镜像</a> 下载。</p>
+<h3 id="Node-js官网"><a href="#Node-js官网" class="headerlink" title="Node.js官网:"></a>Node.js官网:</h3><figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://nodejs.org/en  #官网</span><br><span class="line">https://nodejs.org/en/download  #下载页面</span><br></pre></td></tr></tbody></table></figure>
+
+<p>其它的安装方法：</p>
+<ul>
+<li>Windows：通过 <a href="https://github.com/jasongin/nvs/">nvs</a>（推荐）或者 <a href="https://github.com/nvm-sh/nvm">nvm</a> 安装。</li>
+<li>Mac：使用 <a href="https://brew.sh/">Homebrew</a> 或 <a href="http://www.macports.org/">MacPorts</a> 安装。</li>
+<li>Linux（DEB/RPM-based）：从 <a href="https://github.com/nodesource/distributions">NodeSource</a> 安装。</li>
+<li>其它：使用相应的软件包管理器进行安装，可以参考由 Node.js 提供的 <a href="https://nodejs.org/en/download/package-manager/">指导</a>。</li>
+</ul>
+<p>对于 Mac 和 Linux 同样建议使用 nvs 或者 nvm，以避免可能会出现的权限问题。</p>
+<h4 id="Node-js-ubuntu-Debian系列安装"><a href="#Node-js-ubuntu-Debian系列安装" class="headerlink" title="Node.js-ubuntu-Debian系列安装"></a>Node.js-ubuntu-Debian系列安装</h4><p><strong>Node.js v21.x</strong>：</p>
+<h5 id="使用Ubuntu"><a href="#使用Ubuntu" class="headerlink" title="使用Ubuntu"></a>使用Ubuntu</h5><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &amp;&amp;\</span><br><span class="line">sudo apt-get install -y nodejs</span><br><span class="line">node --version #检查node.js版本</span><br><span class="line">npm --version  #检查npm版本</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="以-root-身份使用-Debian"><a href="#以-root-身份使用-Debian" class="headerlink" title="以 root 身份使用 Debian"></a>以 root 身份使用 Debian</h5><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://deb.nodesource.com/setup_21.x | bash - &amp;&amp;\</span><br><span class="line">apt-get install -y nodejs</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="Node-js-centos-radhat系列安装-不支持7"><a href="#Node-js-centos-radhat系列安装-不支持7" class="headerlink" title="Node.js-centos\radhat系列安装(不支持7)"></a>Node.js-centos\radhat系列安装(不支持7)</h4><h3 id="RPM-安装说明"><a href="#RPM-安装说明" class="headerlink" title="RPM 安装说明"></a>RPM 安装说明</h3><p>Nodesource RPM 包签名密钥可在此处获取：<a href="https://rpm.nodesource.com/gpgkey/nodesource.gpg.key">https ://rpm.nodesource.com/gpgkey/nodesource.gpg.key</a></p>
+<p><strong>Node.js v21.x</strong></p>
+<h5 id="作为root用户"><a href="#作为root用户" class="headerlink" title="作为root用户"></a>作为root用户</h5><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://rpm.nodesource.com/setup_21.x | bash -</span><br><span class="line">yum install -y nodejs</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="没有root权限"><a href="#没有root权限" class="headerlink" title="没有root权限"></a>没有root权限</h5><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://rpm.nodesource.com/setup_21.x | sudo bash -</span><br><span class="line">yum install -y nodejs</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>Windows 用户</p>
+<p>使用 Node.js 官方安装程序时，请确保勾选 <strong>Add to PATH</strong> 选项（默认已勾选）</p>
+</blockquote>
+<blockquote>
+<p>For Mac / Linux 用户</p>
+<p>如果在尝试安装 Hexo 的过程中出现 <code>EACCES</code> 权限错误，请遵循 <a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally">由 npmjs 发布的指导</a> 修复该问题。强烈建议 <strong>不要</strong> 使用 root、sudo 等方法覆盖权限</p>
+</blockquote>
+<blockquote>
+<p>Linux</p>
+<p>如果您使用 Snap 来安装 Node.js，在 <a href="https://hexo.io/zh-cn/docs/commands#init">初始化</a> 博客时您可能需要手动在目标文件夹中执行 <code>npm install</code>。</p>
+</blockquote>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
+<p>建议使用这一条命令</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">hexo version #检查hexo版本</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="进阶安装和使用"><a href="#进阶安装和使用" class="headerlink" title="进阶安装和使用"></a>进阶安装和使用</h3><p>对于熟悉 npm 的进阶用户，可以仅局部安装 <code>hexo</code> 包。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo</span><br></pre></td></tr></tbody></table></figure>
+
+<p>安装以后，可以使用以下两种方式执行 Hexo：</p>
+<ol>
+<li><code>npx hexo &lt;command&gt;</code></li>
+<li>Linux 用户可以将 Hexo 所在的目录下的 <code>node_modules</code> 添加到环境变量之中即可直接使用 <code>hexo &lt;command&gt;</code>：</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 'PATH="$PATH:./node_modules/.bin"' &gt;&gt; ~/.profile</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Node-js-版本限制"><a href="#Node-js-版本限制" class="headerlink" title="Node.js 版本限制"></a>Node.js 版本限制</h3><p>如果你坚持使用旧的 Node.js，你可以考虑安装 Hexo 的过去版本。</p>
+<p>请注意，我们不提供对过去版本 Hexo 的错误修复。</p>
+<p>我们强烈建议永远安装 <a href="https://www.npmjs.com/package/hexo?activeTab=versions">最新版本</a> 的 Hexo，以及 <a href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85%E5%89%8D%E6%8F%90">推荐的 Node.js 版本</a>。</p>
+<table>
+<thead>
+<tr>
+<th align="left">Hexo 版本</th>
+<th align="left">最低版本 (Node.js 版本)</th>
+<th align="left">最高版本 (Node.js 版本)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">7.0+</td>
+<td align="left">14.0.0</td>
+<td align="left">latest</td>
+</tr>
+<tr>
+<td align="left">6.2+</td>
+<td align="left">12.13.0</td>
+<td align="left">latest</td>
+</tr>
+<tr>
+<td align="left">6.0+</td>
+<td align="left">12.13.0</td>
+<td align="left">18.5.0</td>
+</tr>
+<tr>
+<td align="left">5.0+</td>
+<td align="left">10.13.0</td>
+<td align="left">12.0.0</td>
+</tr>
+<tr>
+<td align="left">4.1 - 4.2</td>
+<td align="left">8.10</td>
+<td align="left">10.0.0</td>
+</tr>
+<tr>
+<td align="left">4.0</td>
+<td align="left">8.6</td>
+<td align="left">8.10.0</td>
+</tr>
+<tr>
+<td align="left">3.3 - 3.9</td>
+<td align="left">6.9</td>
+<td align="left">8.0.0</td>
+</tr>
+<tr>
+<td align="left">3.2 - 3.3</td>
+<td align="left">0.12</td>
+<td align="left">未知</td>
+</tr>
+<tr>
+<td align="left">3.0 - 3.1</td>
+<td align="left">0.10 或 iojs</td>
+<td align="left">未知</td>
+</tr>
+<tr>
+<td align="left">0.0.1 - 2.8</td>
+<td align="left">0.10</td>
+<td align="left">未知</td>
+</tr>
+</tbody></table>
+<h2 id="hexo-建站"><a href="#hexo-建站" class="headerlink" title="hexo-建站"></a>hexo-建站</h2><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;文件夹名称&gt;</span><br><span class="line">cd &lt;文件夹名称&gt;</span><br><span class="line">npm install #安装/初始化</span><br></pre></td></tr></tbody></table></figure>
+
+<p>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>网站的 <a href="https://hexo.io/zh-cn/docs/configuration">配置</a> 信息，您可以在此配置大部分的参数。</p>
+<p><a href="https://hexo.io/zh-cn/docs/configuration">https://hexo.io/zh-cn/docs/configuration</a>  #配置链接</p>
+<p>编辑配置文件信息</p>
+<h3 id="配置信息说明"><a href="#配置信息说明" class="headerlink" title="配置信息说明"></a>配置信息说明</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>title</code></td>
+<td align="left">网站标题</td>
+</tr>
+<tr>
+<td align="left"><code>subtitle</code></td>
+<td align="left">网站副标题</td>
+</tr>
+<tr>
+<td align="left"><code>description</code></td>
+<td align="left">网站描述</td>
+</tr>
+<tr>
+<td align="left"><code>keywords</code></td>
+<td align="left">网站的关键词。支持多个关键词。</td>
+</tr>
+<tr>
+<td align="left"><code>author</code></td>
+<td align="left">您的名字</td>
+</tr>
+<tr>
+<td align="left"><code>language</code></td>
+<td align="left">网站使用的语言。对于简体中文用户来说，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 <code>zh-Hans</code>和 <code>zh-CN</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>timezone</code></td>
+<td align="left">网站时区。Hexo 默认使用您电脑的时区。请参考 <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">时区列表</a> 进行设置，如 <code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。一般的，对于中国大陆地区可以使用 <code>Asia/Shanghai</code>。</td>
+</tr>
+</tbody></table>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>应用程序的信息。<a href="https://ejs.co/">EJS</a>, <a href="http://learnboost.github.io/stylus/">Stylus</a> 和 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> 渲染引擎 已默认安装，您可以自由移除。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package.json{</span><br><span class="line">  "name": "hexo-site",</span><br><span class="line">  "version": "0.0.0",</span><br><span class="line">  "private": true,</span><br><span class="line">  "hexo": {</span><br><span class="line">    "version": ""</span><br><span class="line">  },</span><br><span class="line">  "dependencies": {</span><br><span class="line">    "hexo": "^7.0.0",</span><br><span class="line">    "hexo-generator-archive": "^2.0.0",</span><br><span class="line">    "hexo-generator-category": "^2.0.0",</span><br><span class="line">    "hexo-generator-index": "^3.0.0",</span><br><span class="line">    "hexo-generator-tag": "^2.0.0",</span><br><span class="line">    "hexo-renderer-ejs": "^2.0.0",</span><br><span class="line">    "hexo-renderer-stylus": "^3.0.0",</span><br><span class="line">    "hexo-renderer-marked": "^6.0.0",</span><br><span class="line">    "hexo-server": "^3.0.0",</span><br><span class="line">    "hexo-theme-landscape": "^1.0.0"</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="运行命令"><a href="#运行命令" class="headerlink" title="运行命令"></a>运行命令</h3><h4 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="#生成静态文件:"></a>#生成静态文件:</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generat  简写:hexo g</span><br></pre></td></tr></tbody></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-d</code>, <code>--deploy</code></td>
+<td align="left">文件生成后立即部署网站</td>
+</tr>
+<tr>
+<td align="left"><code>-w</code>, <code>--watch</code></td>
+<td align="left">监视文件变动</td>
+</tr>
+<tr>
+<td align="left"><code>-b</code>, <code>--bail</code></td>
+<td align="left">生成过程中如果发生任何未处理的异常则抛出异常</td>
+</tr>
+<tr>
+<td align="left"><code>-f</code>, <code>--force</code></td>
+<td align="left">强制重新生成文件 Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。 使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
+</tr>
+<tr>
+<td align="left"><code>-c</code>, <code>--concurrency</code></td>
+<td align="left">最大同时生成文件的数量，默认无限制</td>
+</tr>
+</tbody></table>
+<h3 id="运行命令-1"><a href="#运行命令-1" class="headerlink" title="运行命令"></a>运行命令</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server #运行</span><br></pre></td></tr></tbody></table></figure>
+
+<p>启动服务器。默认情况下，访问网址为： <code>http://localhost:4000/</code>。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-p</code>, <code>--port</code></td>
+<td align="left">重设端口</td>
+</tr>
+<tr>
+<td align="left"><code>-s</code>, <code>--static</code></td>
+<td align="left">只使用静态文件</td>
+</tr>
+<tr>
+<td align="left"><code>-l</code>, <code>--log</code></td>
+<td align="left">启动日记记录，使用覆盖记录格式</td>
+</tr>
+</tbody></table>
+<h2 id="deploy-部署"><a href="#deploy-部署" class="headerlink" title="deploy-部署"></a>deploy-部署</h2><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+
+<p>部署网站。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-g</code>, <code>--generate</code></td>
+<td align="left">部署之前预先生成静态文件</td>
+</tr>
+</tbody></table>
+<p>该命令可以简写为：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="clean-清理缓存"><a href="#clean-清理缓存" class="headerlink" title="clean-清理缓存"></a>clean-清理缓存</h2><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></tbody></table></figure>
+
+<p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p>
+<p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题:"></a>更换主题:</h2><p>链接:<a href="https://hexo.io/themes/">https://hexo.io/themes/</a></p>
+<p>主题:<a href="https://github.com/Yue-plus/hexo-theme-arknights/blob/main/README.md">https://github.com/Yue-plus/hexo-theme-arknights/blob/main/README.md</a></p>
+<h3 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程:"></a>安装教程:</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在自己的hexo框架目录下,运行:</span></span><br><span class="line">git clone https://github.com/Yue-plus/hexo-theme-arknights.git themes/arknights</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">安装依赖:</span></span><br><span class="line">npm install hexo-server hexo-browsersync hexo-renderer-pug --save</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">记录名称:hexo-theme-arknights</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">剪切 Hexo/themes/arknights/_config.yml到 Hexo 目录下，并重命名为_config.arknights.yml。</span></span><br><span class="line">cp themes/arknights/_config.yml _config.arknights.yml</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用vim打开_config.yml,并在文件中找到theme:XXXX   将XXXX更换为:arknights,最后保存</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="添加文章"><a href="#添加文章" class="headerlink" title="添加文章:"></a>添加文章:</h2><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#md文件存放路径:source/_posts/</span><br><span class="line">#默认有一个hello-world.md,记得删除</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="在服务器长期运行"><a href="#在服务器长期运行" class="headerlink" title="在服务器长期运行"></a>在服务器长期运行</h2><h3 id="1-用pm2管理进程让-hexo-博客在服务器后台跑起来"><a href="#1-用pm2管理进程让-hexo-博客在服务器后台跑起来" class="headerlink" title="1.用pm2管理进程让 hexo 博客在服务器后台跑起来"></a><strong>1.用pm2管理进程让 hexo 博客在服务器后台跑起来</strong></h3><p><strong>1,安装pm2</strong>(建议初学者使用此命令)</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pm2</span><br><span class="line">#高级工程师请使用下方命令</span><br><span class="line">npm install pm2</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>2,编写一个执行脚本 —— 在博客根目录下创建一个文件 run.js</strong></p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/myblog</span><br><span class="line"></span><br><span class="line">vim run.js</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#添加如下内容:</span></span></span><br><span class="line">const { exec } = require('child_process')</span><br><span class="line">exec('hexo server -s -p 指定端口',(error, stdout, stderr) =&gt; {</span><br><span class="line">if(error){</span><br><span class="line">        console.log('exec error: ${error}')</span><br><span class="line">        return</span><br><span class="line">}</span><br><span class="line">console.log('stdout: ${stdout}');</span><br><span class="line">console.log('stderr: ${stderr}');</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>3,使用pm2运行脚本 run.js</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd hexo目录</span><br><span class="line">指令: pm2 start run.js</span><br><span class="line">运行起来后可以使用pm2 show + 进程pid查看后台hexo进行</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="4-提示缺少文件"><a href="#4-提示缺少文件" class="headerlink" title="4.提示缺少文件"></a>4.提示缺少文件</h5><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">安装文件 缺少啥安装啥</span></span><br><span class="line">sudo apt-get install powerman linuxptp  pmw wm2 libpod-pom-perl  pms powermanagement-interface gm2 </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">实例命令</span></span><br><span class="line">sudo apt-get install 缺少的文件1 缺少的文件2 缺少的文件3</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="自动清理缓存并生成静态文件脚本"><a href="#自动清理缓存并生成静态文件脚本" class="headerlink" title="自动清理缓存并生成静态文件脚本"></a>自动清理缓存并生成静态文件脚本</h2><p>依然在根目录运行.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim del_old_file.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件内容:</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1></article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2024/03/03/19-Jie-%E6%AF%94%E8%83%BD%E5%A4%9F%E5%B9%B3%E6%9B%BFxray%E7%9A%84%E4%B8%80%E6%AC%BE%E5%B7%A5%E5%85%B7/" title="Jie-一款能够平替xray的工具!而且还开源"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">上一页: Jie-一款能够平替xray的工具!而且还开源</span></a><a class="button is-default" href="/2024/02/29/39-%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/" title="dirmap详细使用教程-目录扫描工具的劳斯莱斯"><span class="has-text-weight-semibold">下一页: dirmap详细使用教程-目录扫描工具的劳斯莱斯</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="Haojen/Claudia-theme-blog" src="https://utteranc.es/client.js" issue-term="pathname" theme="preferred-color-scheme"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/Sgyling"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> 疯狂的杨CC 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>

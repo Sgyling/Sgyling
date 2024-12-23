@@ -1,0 +1,94 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-CN"><head><meta charset="UTF-8"><title>53-nacs-自动扫描并且利用漏洞</title><meta name="description" content="黑客常用工具"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><script>var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?" + '011aebf2f9f9f3201930e159bcd66b17';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();</script><!-- End Baidu Analytics --><link rel="icon" href="https://pic.imgdb.cn/item/6639fa110ea9cb14038250f2.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="nacs 事件驱动的扫描器github:https://github.com/u21h2/nacs
+下载链接:https://github.com/u21h2/nacs/releases/tag/0.0.4
+[中文自述] | [英文自述文件]
+   
+✨ 功能
+探活
+服务扫描(常规&amp;amp;非常规则端口)
+poc探测(xray&amp;amp;nuclei格式)
+数据库等弱口令爆破
+内网常见漏洞利用
+
+⭐️亮点
+常见组件及常见HTTP请求头的log4j漏洞检测 
+非常规范端口的服务扫描和使用（比如2222端口的ssh等等）
+识别为公网IP时，从fofa搜索可用的资产作为扫描的补充（正在写）
+自动识别简单web页面的输入框，用于弱口令爆破及log4j的检测(正在写)
+
+利用过程123456789101112环境配置 .."><meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="杨CC的工具集合" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">疯狂的杨CC's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">53-nacs-自动扫描并且利用漏洞</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nacs-%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%9A%84%E6%89%AB%E6%8F%8F%E5%99%A8"><span class="toc-text">nacs 事件驱动的扫描器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%A8-%E5%8A%9F%E8%83%BD"><span class="toc-text">✨ 功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%AD%90%EF%B8%8F%E4%BA%AE%E7%82%B9"><span class="toc-text">⭐️亮点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E8%BF%87%E7%A8%8B"><span class="toc-text">利用过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8"><span class="toc-text">快速使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-text">效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0"><span class="toc-text">常用参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-text">表格</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90"><i class="tag post-item-tag">渗透工具推荐</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">53-nacs-自动扫描并且利用漏洞</h1><time class="has-text-grey" datetime="2024-05-01T09:53:07.000Z">2024-05-01</time><article class="mt-2 post-content"><h1 id="nacs-事件驱动的扫描器"><a href="#nacs-事件驱动的扫描器" class="headerlink" title="nacs 事件驱动的扫描器"></a>nacs 事件驱动的扫描器</h1><p>github:<a href="https://github.com/u21h2/nacs">https://github.com/u21h2/nacs</a></p>
+<p>下载链接:<a href="https://github.com/u21h2/nacs/releases/tag/0.0.4">https://github.com/u21h2/nacs/releases/tag/0.0.4</a></p>
+<p>[<a href="https://github.com/u21h2/nacs/blob/main/README.md">中文自述]</a> | [<a href="https://github.com/u21h2/nacs/blob/main/README_EN.md">英文自述文件]</a></p>
+<p><a href="https://github.com/u21h2/nacs"><img src="https://camo.githubusercontent.com/3ec3266145c2f5f5b9eeecdeee15398f69fffe59d87cb53043aa3ec2f5aba0c1/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f676f2d6d6f642f676f2d76657273696f6e2f75323168322f6e6163733f66696c656e616d653d676f2e6d6f64" alt="发布"></a> <a href="https://github.com/u21h2/nacs"><img src="https://camo.githubusercontent.com/6847718f24bd6b0de661635fef3bb95d170dcf748f85d38def9bc280bc15f4e4/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6e6163732d302e302e342d666636396234" alt="发布"></a> <a href="https://github.com/u21h2/nacs/releases"><img src="https://camo.githubusercontent.com/42dde9b88cc4ed858ff81187d443213d08910c2178c924988e82749cccf30074/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f646f776e6c6f6164732f75323168322f6e6163732f746f74616c" alt="img"></a> <a href="https://github.com/u21h2/nacs"><img src="https://camo.githubusercontent.com/e7a05da50fc9b9c1fa905d506a3d7078c798cd05c2859cfdece0a8e4c9f25d0c/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f666f726b732f75323168322f6e616373" alt="img"></a></p>
+<h2 id="✨-功能"><a href="#✨-功能" class="headerlink" title="✨ 功能"></a>✨ 功能</h2><ul>
+<li>探活</li>
+<li>服务扫描(常规&amp;非常规则端口)</li>
+<li>poc探测(xray&amp;nuclei格式)</li>
+<li>数据库等弱口令爆破</li>
+<li>内网常见漏洞利用</li>
+</ul>
+<h2 id="⭐️亮点"><a href="#⭐️亮点" class="headerlink" title="⭐️亮点"></a>⭐️亮点</h2><ul>
+<li>常见组件及常见HTTP请求头的log4j漏洞检测 <a href="https://github.com/u21h2/nacs/blob/main/utils/3.png"><img src="https://github.com/u21h2/nacs/raw/main/utils/3.png" alt="图像"></a></li>
+<li>非常规范端口的服务扫描和使用（比如2222端口的ssh等等）</li>
+<li>识别为公网IP时，从fofa搜索可用的资产作为扫描的补充（正在写）</li>
+<li>自动识别简单web页面的输入框，用于弱口令爆破及log4j的检测(正在写)</li>
+</ul>
+<h1 id="利用过程"><a href="#利用过程" class="headerlink" title="利用过程"></a>利用过程</h1><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">环境配置</span><br><span class="line">    弱口令配置、要写入的公钥、反弹的地址、ceye的API等等</span><br><span class="line">探活</span><br><span class="line">    icmp ping</span><br><span class="line">资产初筛</span><br><span class="line">    确定哪个端口对应哪种服务，尤其是非常规端口</span><br><span class="line">漏洞打点(根据指纹信息发送到相应的模块)</span><br><span class="line">    可以RCE的非web服务 进行探测或者利用(redis、永恒之蓝等)</span><br><span class="line">    web服务 扫poc 如log4j</span><br><span class="line">    非web服务 未授权及爆破</span><br><span class="line">    web服务 自动爆破登录 (未实现)</span><br><span class="line">    重点服务 OA、VPN、Weblogic、蜜罐等</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="快速使用"><a href="#快速使用" class="headerlink" title="快速使用"></a>快速使用</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo ./nacs -h IP或IP段 -o result.txt</span><br><span class="line">sudo ./nacs -hf IP或IP段的文件 -o result.txt</span><br><span class="line">sudo ./nacs -u url(支持http、ssh、ftp、smb等) -o result.txt</span><br><span class="line">sudo ./nacs -uf url文件 -o result.txt</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><ul>
+<li><p>（1）添加目标IP：对10.15.196.135机器进行扫描，手动添加密码，并关闭反连平台的测试（即不测试log4j等）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./nacs -h 10.15.196.135 -passwordadd "xxx,xxx" -noreverse</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><a href="https://github.com/u21h2/nacs/blob/main/utils/1.png"><img src="https://github.com/u21h2/nacs/raw/main/utils/1.png" alt="图像"></a> 可见发现了nacos的权限绕过漏洞，以及各服务爆破成功</p>
+</li>
+<li><p>（2）直接添加目标url：对10.211.55.7的ssh端口进行爆破，添加用户名密码第一测试，爆破成功后执行ifconfig；文档某靶场url尝试log4j漏洞</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./nacs -u "ssh://10.211.55.7:22,http://123.58.224.8:13099" -usernameadd test -passwordadd test -command ifconfig</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><a href="https://github.com/u21h2/nacs/blob/main/utils/2.png"><img src="https://github.com/u21h2/nacs/raw/main/utils/2.png" alt="图像"></a> 可见两个log4j的poc都检测成功了，注入点在请求头的X-Api-Version字段；ssh爆破也成功了</p>
+</li>
+</ul>
+<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-o 指定输出的日志文件</span><br><span class="line">-np 不探活, 直接扫端口</span><br><span class="line">-po 只使用这些端口</span><br><span class="line">-pa 添加这些端口</span><br><span class="line">-fscanpocpath fscan的poc路径 格式为"web/pocs/"</span><br><span class="line">-nucleipocpath nuclei的poc路径 格式为"xxx/pocs/**"</span><br><span class="line">-nopoc 不进行poc探测, 包括xray与nuclei</span><br><span class="line">-nuclei 使用nuclei进行探测(不强烈建议加上此参数,因为nuclei的poc太多了)</span><br><span class="line">-nobrute 不进行爆破</span><br><span class="line">-pocdebug poc探测时打印全部信息</span><br><span class="line">-brutedebug 爆破时打印全部信息</span><br><span class="line">-useradd 爆破时添加用户名</span><br><span class="line">-passwordadd 爆破时添加密码</span><br><span class="line">-noreverse 不使用反连平台</span><br><span class="line">-ceyekey 你自己的ceye token</span><br><span class="line">-ceyedomain 你自己的ceye domain</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>资料参考了以下优秀作品</p>
+<ul>
+<li>fscan <a href="https://github.com/shadow1ng/fscan%E4%B8%93%E6%B3%A8%E4%BA%8E%E5%86%85%E7%BD%91">https://github.com/shadow1ng/fscan专注于内网</a> web 和服务的 poc 服务的爆破</li>
+<li>kscan <a href="https://github.com/lcvvvv/kscan%E4%B8%93%E6%B3%A8%E4%BA%8E%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E8%83%BD%E5%A4%9F%E6%8E%A2%E6%B5%8B%E5%88%B0%E9%9D%9E%E5%B8%B8%E8%A7%84%E7%AB%AF%E5%8F%A3%E5%BC%80%E7%9A%84%E6%9C%8D%E5%8A%A1%EF%BC%8C%E4%BE%8B%E5%A6%82">https://github.com/lcvvvv/kscan专注于信息收集能够探测到非常规端口开的服务，例如</a> 2222 的 ssh</li>
+<li>dismap <a href="https://github.com/zhzyker/dismap%E8%B5%84%E4%BA%A7%E6%94%B6%E9%9B%86">https://github.com/zhzyker/dismap资产收集</a></li>
+<li>拉登<a href="https://github.com/k8gege/LadonGo">https://github.com/k8gege/LadonGo</a></li>
+<li>xray <a href="https://github.com/chaitin/xray%E4%B8%BB%E5%8A%A8/%E8%A2%AB%E5%8A%A8%E6%89%AB%E5%B8%B8%E8%A7%81web%E6%BC%8F%E6%B4%9E">https://github.com/chaitin/xray主动/被动扫常见web漏洞</a> 扫poc</li>
+<li>虾虎鱼<a href="https://cn.gobies.org/">https://cn.gobies.org/</a></li>
+<li>vulmap <a href="https://github.com/zhzyker/vulmap">https://github.com/zhzyker/vulmap</a></li>
+<li>nali <a href="https://github.com/zu1k/nali%E6%9F%A5%E8%AF%A2IP%E5%9C%B0%E7%90%86%E4%BF%A1%E6%81%AF%E5%92%8CCDN%E6%9C%80%E6%88%90%E5%8A%9F">https://github.com/zu1k/nali查询IP地理信息和CDN最成功</a></li>
+<li>ehole <a href="https://github.com/EdgeSecurityTeam/EHole%E9%87%8D%E7%82%B9%E6%94%BB%E5%87%BB%E7%B3%BB%E7%BB%9F%E6%8C%87%E7%BA%B9%E6%8E%A2%E6%B5%8B%E6%9A%82%E6%97%B6%E4%B8%8D%E8%83%BD%E7%94%A8%E4%BA%86">https://github.com/EdgeSecurityTeam/EHole重点攻击系统指纹探测暂时不能用了</a></li>
+<li>Nuclei <a href="https://github.com/projectdiscovery/nuclei%E5%9F%BA%E4%BA%8Epoc%E7%9A%84%E5%BF%AB%E9%80%9F%E6%89%AB%E6%8F%8F">https://github.com/projectdiscovery/nuclei基于poc的快速扫描</a></li>
+<li>pocV <a href="https://github.com/WAY29/pocV%E8%83%BD%E5%A4%9F%E6%89%AB%E6%8F%8Fx%E5%B0%84%E7%BA%BF%E5%92%8C%E7%BB%86%E8%83%9E%E6%A0%B8%E7%9A%84poc">https://github.com/WAY29/pocV能够扫描x射线和细胞核的poc</a></li>
+<li>afrog <a href="https://github.com/zan8in/afrog">https://github.com/zan8in/afrog</a> CVE、CNVD、默认口令、信息泄露、指纹识别、未授权访问、任意文件读取、命令执行</li>
+<li>啄木鸟<a href="https://github.com/Ciyfly/woodpecker">https://github.com/Ciyfly/woodpecker</a></li>
+<li>xray-poc-scan-engine <a href="https://github.com/h1iba1/xray-poc-scan-engine">https://github.com/h1iba1/xray-poc-scan-engine</a></li>
+<li>pocassist <a href="https://github.com/jweny/pocassist%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%AF%BC%E5%85%A5%E5%92%8C%E8%BF%90%E8%A1%8C">https://github.com/jweny/pocassist可视化编辑导入和运行</a></li>
+<li>Aopo <a href="https://github.com/ExpLangcn/Aopo">https://github.com/ExpLangcn/Aopo</a></li>
+<li>SpringExploit <a href="https://github.com/SummerSec/SpringExploit">https://github.com/SummerSec/SpringExploit</a></li>
+<li>fscanpoc补充<a href="https://github.com/chaosec2021/fscan-POC">https://github.com/chaosec2021/fscan-POC</a></li>
+</ul>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2024/05/05/54-%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-burp%E6%8F%92%E4%BB%B6/" title="54-敏感信息收集-burp插件"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">上一页: 54-敏感信息收集-burp插件</span></a><a class="button is-default" href="/2024/04/30/52-zmap-45%E5%88%86%E9%92%9F%E5%8D%B3%E5%8F%AF%E5%85%A8%E7%BD%91ipv4%E7%AB%AF%E5%8F%A3/" title="52-zmap-45分钟即可全网ipv4端口"><span class="has-text-weight-semibold">下一页: 52-zmap-45分钟即可全网ipv4端口</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="Haojen/Claudia-theme-blog" src="https://utteranc.es/client.js" issue-term="pathname" theme="preferred-color-scheme"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/Sgyling"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> 疯狂的杨CC 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>

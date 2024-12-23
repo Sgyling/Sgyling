@@ -1,0 +1,307 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-CN"><head><meta charset="UTF-8"><title>水泽-自动化信息收集工具</title><meta name="description" content="黑客常用工具"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><script>var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?" + '011aebf2f9f9f3201930e159bcd66b17';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();</script><!-- End Baidu Analytics --><link rel="icon" href="https://pic.imgdb.cn/item/6639fa110ea9cb14038250f2.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="水泽-信息收集自动化工具
+郑重声明：文中所涉及的技术、思路和工具仅供以安全为目的的学习交流使用，任何人不得将其用于非法用途以及盈利等目的，否则后果自行承担。
+0x01 介绍作者：Ske
+团队：0x727，未来一段时间将陆续开源工具，地址：https://github.com/0x727
+定位：协助红队人员快速的信息收集，测绘目标资产，寻找薄弱点
+语言：python3开发
+功能：一条龙服务，只需要输入根域名即可全方位收集相关资产，并检测漏洞。也可以输入多个域名、C段IP等，具体案例见下文。
+调用：脚本借用了ksubdomain爆破子域名和theHarvester收集邮箱，感谢ksubdomain和theHarvester作者
+0x02 安装为了避免踩坑,建议安装在如下环境中
+
+当前用户对该目录有写权限，不然扫.."><meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="杨CC的工具集合" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">疯狂的杨CC's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">水泽-自动化信息收集工具</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B0%B4%E6%B3%BD-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7"><span class="toc-text">水泽-信息收集自动化工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-%E4%BB%8B%E7%BB%8D"><span class="toc-text">0x01 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-%E5%AE%89%E8%A3%85"><span class="toc-text">0x02 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker%E8%BF%90%E8%A1%8CShuiZe"><span class="toc-text">docker运行ShuiZe</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-text">0x03 效果展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04-POC%E7%BC%96%E5%86%99"><span class="toc-text">0x04 POC编写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x05-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">0x05 使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x06-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">0x06 实现原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x07-%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD"><span class="toc-text">0x07 新增功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x08-%E5%8F%8D%E9%A6%88"><span class="toc-text">0x08 反馈</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90"><i class="tag post-item-tag">渗透工具推荐</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">水泽-自动化信息收集工具</h1><time class="has-text-grey" datetime="2024-03-10T11:51:00.000Z">2024-03-10</time><article class="mt-2 post-content"><h1 id="水泽-信息收集自动化工具"><a href="#水泽-信息收集自动化工具" class="headerlink" title="水泽-信息收集自动化工具"></a>水泽-信息收集自动化工具</h1><p><a href="https://github.com/0x727/ShuiZe_0x727/releases"><img src="https://camo.githubusercontent.com/c3d13271f2a667a4f699b2deb8b48ba3001c500f252fa539ac08f36a94f541c7/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f72656c656173652f30783732372f536875695a655f30783732372e737667" alt="GitHub release"></a></p>
+<p>郑重声明：文中所涉及的技术、思路和工具仅供以安全为目的的学习交流使用，任何人不得将其用于非法用途以及盈利等目的，否则后果自行承担。</p>
+<h2 id="0x01-介绍"><a href="#0x01-介绍" class="headerlink" title="0x01 介绍"></a>0x01 介绍</h2><p>作者：<a href="https://github.com/SkewwG">Ske</a></p>
+<p>团队：<a href="https://github.com/0x727">0x727</a>，未来一段时间将陆续开源工具，地址：<a href="https://github.com/0x727">https://github.com/0x727</a></p>
+<p>定位：协助红队人员快速的信息收集，测绘目标资产，寻找薄弱点</p>
+<p>语言：python3开发</p>
+<p>功能：一条龙服务，只需要输入根域名即可全方位收集相关资产，并检测漏洞。也可以输入多个域名、C段IP等，具体案例见下文。</p>
+<p>调用：脚本借用了ksubdomain爆破子域名和theHarvester收集邮箱，感谢ksubdomain和theHarvester作者</p>
+<h2 id="0x02-安装"><a href="#0x02-安装" class="headerlink" title="0x02 安装"></a>0x02 安装</h2><p>为了避免踩坑,建议安装在如下环境中</p>
+<ul>
+<li>当前用户对该目录有写权限，不然扫描结果无法生成。root权限即可</li>
+<li>Python环境必须是3.7以上，因为使用了异步。建议VPS环境是ubuntu20，默认是python3.8。安装模块的时候切记不要走豆瓣的源</li>
+<li>在配置文件iniFile/config.ini里加入api（fofa、shodan、github、virustotal）</li>
+<li>下载链接:git clone <a href="https://github.com/0x727/ShuiZe_0x727.git">https://github.com/0x727/ShuiZe_0x727.git</a></li>
+<li>安装python库:python -m pip  install -r .\requirement.txt</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 build.sh</span><br><span class="line">./build.sh</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728153419131.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728153419131.png" alt="image-20210728153419131"></a></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 ShuiZe.py -h</span><br></pre></td></tr></tbody></table></figure>
+
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728154929084.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728154929084.png" alt="image-20210728154929084"></a></p>
+<h3 id="docker运行ShuiZe"><a href="#docker运行ShuiZe" class="headerlink" title="docker运行ShuiZe"></a>docker运行ShuiZe</h3><p>较多人反馈安装的时候会出现各种报错，新增通过docker运行ShuiZe</p>
+<p>通过下面的命令安装docker，然后拉取python3.8的容器，再git clone水泽后，运行docker_build.sh即可。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install docker.io #安装docker</span><br><span class="line">#安装ubuntu18.04</span><br><span class="line">sudo docker pull yankovg/python3.8.2-ubuntu18.04 </span><br><span class="line">#运行</span><br><span class="line">sudo docker run -itd yankovg/python3.8.2-ubuntu18.04 bash</span><br><span class="line">#进入容器的bash</span><br><span class="line">sudo docker exec -it docker的ID /bin/bash</span><br><span class="line">#更新库</span><br><span class="line">sudo apt-get update</span><br><span class="line">#安装git命令</span><br><span class="line">sudo apt install git --fix-missing</span><br><span class="line">#安装vim命令</span><br><span class="line">sudo apt install vim</span><br><span class="line">#删除自带python3</span><br><span class="line">sudo rm /usr/bin/python3</span><br><span class="line">#创建新的python3链接</span><br><span class="line">sudo ln -s /usr/local/bin/python3.8 /usr/bin/python3</span><br><span class="line">#更新python的pip</span><br><span class="line">python3 -m pip install --upgrade pip</span><br><span class="line">#下载该工具</span><br><span class="line">git clone https://github.com/0x727/ShuiZe_0x727.git</span><br><span class="line">#赋予工具权限</span><br><span class="line">chmod 777 docker_build.sh</span><br><span class="line">#运行工具</span><br><span class="line">./docker_build.sh</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>也可参考 <a href="https://github.com/1itt1eB0y">@1itt1eB0y</a> 提供的Dockerfile和docker-compose.yml构建镜像并运行</p>
+<p>链接：<a href="https://github.com/1itt1eB0y/MyCollection/tree/master/docker/shuize">https://github.com/1itt1eB0y/MyCollection/tree/master/docker/shuize</a></p>
+<p><strong>请自行评估安全性</strong></p>
+<p><strong>脚本自带Linux版本的Nuclei和ksubdomain，如果是windows或者mac，需要自行更换版本。</strong></p>
+<h2 id="0x03-效果展示"><a href="#0x03-效果展示" class="headerlink" title="0x03 效果展示"></a>0x03 效果展示</h2><p>备案反查顶级域名</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728155358378.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728155358378.png" alt="image-20210728155358378"></a></p>
+<p>不是泛解析，调用ksubdomain爆破子域名</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728155541501-7458943.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728155541501-7458943.png" alt="image-20210728155541501"></a></p>
+<p>theHarvest获取邮箱</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728161507035.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728161507035.png" alt="image-20210728161507035"></a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728163216047.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728163216047.png" alt="image-20210728163216047"></a></p>
+<p>第三方数据接口 -&gt; 获取子域名</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728160705706.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728160705706.png" alt="image-20210728160705706"></a></p>
+<p>github -&gt; 从github获取子域名，并把查询结果保存到txt，并匹配关键字获取敏感信息</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728161022348.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728161022348.png" alt="image-20210728161022348"></a></p>
+<p>百度和必应爬虫</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728161117459.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728161117459.png" alt="image-20210728161117459"></a></p>
+<p>证书</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728161711534.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728161711534.png" alt="image-20210728161711534"></a></p>
+<p>子域名友链</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728161339208.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728161339208.png" alt="image-20210728161339208"></a></p>
+<p>解析子域名A记录,检测是否CDN和整理C段的IP</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728162655684.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728162655684.png" alt="image-20210728162655684"></a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728162049962.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728162049962.png" alt="image-20210728162049962"></a></p>
+<p>网络空间搜索引擎：Fofa和Shodan</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728162119531.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728162119531.png" alt="image-20210728162119531"></a></p>
+<p>IP反查域名</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728162303312.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728162303312.png" alt="image-20210728162303312"></a></p>
+<p>存活探测</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728162441132.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728162441132.png" alt="image-20210728162441132"></a></p>
+<p>漏洞检测</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728165612314.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728165612314.png" alt="image-20210728165612314"></a></p>
+<p>扫描结果保存在excel文件里</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728170303756.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728170303756.png" alt="image-20210728170303756"></a></p>
+<p>excel的内容如下</p>
+<p>备案反查顶级域名</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728163926763.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728163926763.png" alt="image-20210728163926763"></a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728163940918.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728163940918.png" alt="image-20210728163940918"></a></p>
+<p>邮箱</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728164010063.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728164010063.png" alt="image-20210728164010063"></a></p>
+<p>Github敏感信息</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728164040649.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728164040649.png" alt="image-20210728164040649"></a></p>
+<p>爬虫</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728164146630.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728164146630.png" alt="image-20210728164146630"></a></p>
+<p>证书</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728164211552.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728164211552.png" alt="image-20210728164211552"></a></p>
+<p>子域名A记录和CDN</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728164316747.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728164316747.png" alt="image-20210728164316747"></a></p>
+<p>动态链接和后台地址</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728164555141.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728164555141.png" alt="image-20210728164555141"></a></p>
+<p>网络空间搜索引擎</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728164745820.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728164745820.png" alt="image-20210728164745820"></a></p>
+<p>ip反查域名</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728164811422.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728164811422.png" alt="image-20210728164811422"></a></p>
+<p>存活网站标题</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728164933353.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728164933353.png" alt="image-20210728164933353"></a></p>
+<p>指纹和漏洞</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728165004202.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728165004202.png" alt="image-20210728165004202"></a></p>
+<p>相关域名和C段</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728165052361.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728165052361.png" alt="image-20210728165052361"></a></p>
+<h2 id="0x04-POC编写"><a href="#0x04-POC编写" class="headerlink" title="0x04 POC编写"></a>0x04 POC编写</h2><p>POC的模板文件例子：<code>Plugins/Vul/Web/__template__.py</code></p>
+<p>只需要在run_detect方法里调用POC的利用方法即可。</p>
+<h2 id="0x05-使用方法"><a href="#0x05-使用方法" class="headerlink" title="0x05 使用方法"></a>0x05 使用方法</h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>python3 ShuiZe.py -d domain.com</td>
+<td>收集单一的根域名资产</td>
+</tr>
+<tr>
+<td>python3 ShuiZe.py –domainFile domain.txt</td>
+<td>批量跑根域名列表</td>
+</tr>
+<tr>
+<td>python3 ShuiZe.py -c 192.168.1.0,192.168.2.0,192.168.3.0</td>
+<td>收集C段资产</td>
+</tr>
+<tr>
+<td>python3 ShuiZe.py -f url.txt</td>
+<td>对url里的网站漏洞检测</td>
+</tr>
+<tr>
+<td>python3 ShuiZe.py –fofaTitle XXX大学</td>
+<td>从fofa里收集标题为XXX大学的资产，然后漏洞检测</td>
+</tr>
+<tr>
+<td>python3 ShuiZe.py -d domain.com –justInfoGather 1</td>
+<td>仅信息收集，不检测漏洞</td>
+</tr>
+<tr>
+<td>python3 ShuiZe.py -d domain.com –ksubdomain 0</td>
+<td>不调用ksubdomain爆破子域名</td>
+</tr>
+</tbody></table>
+<h2 id="0x06-实现原理"><a href="#0x06-实现原理" class="headerlink" title="0x06 实现原理"></a>0x06 实现原理</h2><ul>
+<li>备案反查顶级域名 -&gt; 获取目标域名相关的其他根域名 -&gt; 接口:<a href="http://icp.chinaz.com/">http://icp.chinaz.com</a></li>
+<li>判断是否是泛解析<ul>
+<li>泛解析-&gt; 不爆破子域名</li>
+<li>不是泛解析 -&gt; 调用ksubdomain爆破子域名(脚本里我用的是linux版本的ksubdomain，文件地址:./Plugins/infoGather/subdomain/ksubdomain/ksubdomain_linux，如果是其他系统请自行替换)</li>
+</ul>
+</li>
+<li>调用theHarvester -&gt; 获取子域名和邮箱列表</li>
+<li>第三方数据接口 -&gt; 获取子域名<ul>
+<li>virustotal -&gt; <a href="https://www.virustotal.com/">https://www.virustotal.com</a> -&gt; 需要api</li>
+<li>ce.baidu.com -&gt; <a href="http://ce.baidu.com/">http://ce.baidu.com</a></li>
+<li>url.fht.im -&gt; <a href="https://url.fht.im/">https://url.fht.im/</a></li>
+<li>qianxun -&gt; <a href="https://www.dnsscan.cn/">https://www.dnsscan.cn/</a></li>
+<li>sublist3r -&gt; <a href="https://api.sublist3r.com/">https://api.sublist3r.com</a></li>
+<li>crt.sh -&gt; <a href="https://crt.sh/">https://crt.sh</a></li>
+<li>certspotter -&gt; <a href="https://api.certspotter.com/">https://api.certspotter.com</a></li>
+<li>bufferover -&gt; <a href="http://dns.bufferover.run/">http://dns.bufferover.run</a></li>
+<li>threatcrowd -&gt; <a href="https://threatcrowd.org/">https://threatcrowd.org</a></li>
+<li>hackertarget -&gt; <a href="https://api.hackertarget.com/">https://api.hackertarget.com</a></li>
+<li>chaziyu -&gt; <a href="https://chaziyu.com/hbu.cn/">https://chaziyu.com/hbu.cn/</a></li>
+<li>rapiddns -&gt; <a href="https://rapiddns.io/">https://rapiddns.io</a></li>
+<li>sitedossier -&gt; <a href="http://www.sitedossier.com/">http://www.sitedossier.com</a></li>
+<li>ximcx -&gt; <a href="http://sbd.ximcx.cn/">http://sbd.ximcx.cn</a></li>
+</ul>
+</li>
+<li>github -&gt; 从github获取子域名，并把查询结果保存到txt-获取敏感信息<ul>
+<li>敏感信息关键字匹配，可在iniFile/config.ini自定义关键字内容，内置如下关键字(‘jdbc:’, ‘password’, ‘username’, ‘database’, ‘smtp’, ‘vpn’, ‘pwd’, ‘passwd’, ‘connect’)</li>
+</ul>
+</li>
+<li>百度和必应爬虫 -&gt; 获取目标后台等地址(‘inurl:admin’, ‘inurl:login’, ‘inurl:system’, ‘inurl:register’, ‘inurl:upload’, ‘后台’, ‘系统’, ‘登录’)</li>
+<li>证书 -&gt; 获取目标关联域名</li>
+<li>子域名友链 -&gt; 获取未爆破出的子域名，未被收录的深层域名</li>
+</ul>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728132752381.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728132752381.png" alt="image-20210728132752381"></a></p>
+<p>整理上面所有的子域名</p>
+<ul>
+<li>对所有子域名判断是否是CDN并解析出A记录</li>
+<li>统计每个c段出现IP的个数</li>
+<li>调用网络空间搜索引擎<ul>
+<li>fofa -&gt; 需要API</li>
+<li>shodan -&gt; 需要API</li>
+</ul>
+</li>
+<li>前面获得的ip反查域名得到相关资产的子域名，整理出所有的子域名和IP</li>
+</ul>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728133047590.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728133047590.png" alt="image-20210728133047590"></a></p>
+<ul>
+<li><p>整理所有资产探测漏洞</p>
+<ul>
+<li><p>Web -&gt; 存活探测</p>
+<ul>
+<li>获取标题<ul>
+<li>自动跑后台路径([‘admin’, ‘login’, ‘system’, ‘manager’, ‘admin.jsp’, ‘login.jsp’, ‘admin.php’, ‘login.php’,’admin.aspx’, ‘login.aspx’, ‘admin.asp’, ‘login.asp’])</li>
+<li>如果URL是IP则查询IP的归属地</li>
+</ul>
+</li>
+<li>漏洞检测 -&gt; Plugins/Vul/Web</li>
+</ul>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728134051049.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728134051049.png" alt="image-20210728134051049"></a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728134115608.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728134115608.png" alt="image-20210728134115608"></a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728134131076.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728134131076.png" alt="image-20210728134131076"></a></p>
+</li>
+<li><p>非Web服务 –&gt; 未授权和弱口令</p>
+</li>
+</ul>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728134212279.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728134212279.png" alt="image-20210728134212279"></a></p>
+</li>
+</ul>
+<p>其他功能</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728134304533.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728134304533.png" alt="image-20210728134304533"></a></p>
+<p>结果展示：</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/image-20210728132105833.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/image-20210728132105833.png" alt="image-20210728132105833"></a></p>
+<p>完整流程图:</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/xmind.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/xmind.png" alt="img"></a></p>
+<h2 id="0x07-新增功能"><a href="#0x07-新增功能" class="headerlink" title="0x07 新增功能"></a>0x07 新增功能</h2><p>2021.7.31 增加了Censys接口，需要在iniFile/config.ini的[censys api]中填入API。 功能是获取域名的所有解析IP记录，一是为了Host碰撞，二是更加准确的得到C段IP</p>
+<p>需要censys的api，免费的账户一个月只有250次查询，所以后期需要注意，用完了要更新api</p>
+<p>2021.7.31 增加了Host碰撞访问内网系统漏洞，感谢 <strong>横戈安全团队-小洲</strong> 提交的建议</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/hostCollide.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/hostCollide.png" alt="img"></a></p>
+<p>2021.8.1 修复了CDN判断的bug，感谢 <strong>leveryd 师傅</strong> 提交的bug。</p>
+<p>issues地址：<a href="https://github.com/0x727/ShuiZe_0x727/issues/3">#3</a></p>
+<p>2021.8.3 修复了chinazApi接口请求超时太长的bug，设置默认时间10秒，感谢 <strong>k0njac 师傅</strong>提交的bug。</p>
+<p>issues地址：<a href="https://github.com/0x727/ShuiZe_0x727/issues/11">#11</a></p>
+<p>2021.8.13 增加了获取Github敏感信息地址的作者邮箱，帮助判断是否是目标员工的项目</p>
+<p>2021.8.17 更新了ksubdomain版本，自动选择网卡，不需要重新手动输入网卡</p>
+<p>ksubdomain项目地址：<a href="https://github.com/knownsec/ksubdomain">https://github.com/knownsec/ksubdomain</a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/github_auther.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/github_auther.png" alt="img"></a></p>
+<p>2021.9.1 增加了从fofa中爬去socks代理功能，后续可以手动配合proxychains进行漏洞探测，防止因为被封IP导致漏报。</p>
+<p>感谢 <strong>安恒水滴实验室-1amfine2333师傅</strong> 提供的思路。</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/socksProxy.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/socksProxy.png" alt="img"></a></p>
+<p>2021.9.2 增加了Confluence指纹识别，漏洞利用地址：<a href="https://github.com/h3v0x/CVE-2021-26084_Confluence">https://github.com/h3v0x/CVE-2021-26084_Confluence</a></p>
+<p>2021.9.4 增加了某查接口，对目标的整个架构分析，涵盖【对外投资、控股公司、分支机构、联系方式、邮箱】等信息。</p>
+<p>感谢 <strong>pykiller师傅</strong> 提交的建议，同时参考了 <strong>吐司师傅gubeiya</strong> 的脚本</p>
+<p>issues地址：<a href="https://github.com/0x727/ShuiZe_0x727/issues/25">#25</a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/aiqicha.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/aiqicha.png" alt="img"></a></p>
+<p>2021.9.26 增加了夸克的api接口,-d -c –fofaTitle中都会调用</p>
+<p>限定了每次最大查询数量1000条，不然一个月5w条数据也用不了多少次</p>
+<p>在config.ini配置文件的quake_nums值</p>
+<p>issues地址：<a href="https://github.com/0x727/ShuiZe_0x727/issues/33">#33</a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/quakeApi.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/quakeApi.png" alt="img"></a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/quakeApi2.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/quakeApi2.png" alt="img"></a></p>
+<p>2021.11.30 增加了奇安信hunter的api接口,-d -c –fofaTitle中都会调用</p>
+<p>限定了每次最大查询数量200条，不然一天的几千条数据也用不了多少次</p>
+<p>在config.ini配置文件的qianxin_nums值</p>
+<p>issues地址：<a href="https://github.com/0x727/ShuiZe_0x727/issues/48">#48</a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/qianxinApi2.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/qianxinApi2.png" alt="img"></a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/qianxinApi.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/qianxinApi.png" alt="img"></a></p>
+<p>2022.1.17 修复了certspotter接口获取子域名过滤不严谨的问题</p>
+<p>感谢 <strong>union-cmd师傅</strong> 提交的建议</p>
+<p>issues地址：<a href="https://github.com/0x727/ShuiZe_0x727/issues/57">#57</a></p>
+<p>2022.3.21 更新了fofa api的域名</p>
+<p>2022.3.21 更新了域名备案反查的问题</p>
+<p>2022.3.23 增加了securitytrails接口获取子域名，该接口很强大，建议在config.ini里添加你的api keys</p>
+<p>issues地址：<a href="https://github.com/0x727/ShuiZe_0x727/issues/48">#48</a></p>
+<p>注册地址: <a href="https://docs.securitytrails.com/">https://docs.securitytrails.com/</a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/securitytrails.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/securitytrails.png" alt="img"></a></p>
+<p>感谢 <strong>郭师傅</strong> 提交的建议</p>
+<p>2022.3.23 修复了爱企查无法获取数据的问题</p>
+<p>感谢 <strong>横戈安全团队-chhyx（逗逗）</strong> 的技术支持</p>
+<p>2022.4.13 修复了奇安信测绘语法使用错误的问题</p>
+<p>issues地址：<a href="https://github.com/0x727/ShuiZe_0x727/issues/74">#74</a></p>
+<p>感谢 <strong>cwkiller</strong> 反馈的问题</p>
+<p>2022.4.16 增加了调用Nuclei检测漏洞</p>
+<p>nuclei的参数在iniFile/config.ini配置，默认为<code>nuclei_config = -rl 300 -c 50 -timeout 5 -stats -silent -severity critical,high</code> 根据需求自行修改</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/nuclei_1.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/nuclei_1.png" alt="img"></a></p>
+<p>2022.7.5 Nuclei默认参数配置增加-as</p>
+<p>issues地址: <a href="https://github.com/0x727/ShuiZe_0x727/issues/104">#104</a></p>
+<p>-as 参数，先使用 wappalyzer 进行指纹识别，在进行扫描。</p>
+<p>感谢 <strong>anquanbiji</strong> 反馈的建议</p>
+<p>2022.8.12 ShuiZe增加Dockerfile安装方式</p>
+<p>issues地址: <a href="https://github.com/0x727/ShuiZe_0x727/issues/99">#99</a></p>
+<p>感谢 <a href="https://github.com/1itt1eB0y">@1itt1eB0y</a> 提供的脚本。<strong>安全性自行评估</strong></p>
+<p>2022.8.12 修复了大量反馈aiqicha脚本报错的问题，初步排查是被封IP的原因。</p>
+<p>2022.8.12 修复了quakeApi没有title导致报错的情况</p>
+<p>issues地址: <a href="https://github.com/0x727/ShuiZe_0x727/issues/120">#120</a></p>
+<p>感谢 <strong>Zimba5880</strong> 反馈的建议</p>
+<p>2022.8.20 增加了快代理配置，漏洞检测时会使用快代理的代理池，这样可以避免当前IP被封后导致后续的扫描出现遗漏。</p>
+<p>购买快代理的隧道代理，地址：<a href="https://www.kuaidaili.com/cart?t=tps_c">https://www.kuaidaili.com/cart?t=tps_c</a></p>
+<p>根据自己的需求选择包年包月或者按量付费，更换IP的频率。这里注意并发请求数的，并发数量越高，在配置文件里iniFile/config.ini的thread_num就可以设置的更高。</p>
+<p>假设并发数为5，那么thread_num不要设置超过10，具体的值自己测试。</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/kuaidaili1.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/kuaidaili1.png" alt="img"></a></p>
+<p>购买后查看host、port、username、password，然后填入到配置文件里</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/kuaidaili2.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/kuaidaili2.png" alt="img"></a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/kuaidaili3.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/kuaidaili3.png" alt="img"></a></p>
+<p>默认关闭快代理代理池功能，如果要开启，把switch设置为on，使用快代理代理池时会先验证是否配置正确</p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/kuaidaili4.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/kuaidaili4.png" alt="img"></a></p>
+<p>2022.8.27 集成了ObserverWard扫描指纹</p>
+<p>项目地址：<a href="https://github.com/0x727/ObserverWard">https://github.com/0x727/ObserverWard</a></p>
+<p>指纹地址：<a href="https://github.com/0x727/FingerprintHub">https://github.com/0x727/FingerprintHub</a></p>
+<p><a href="https://github.com/0x727/ShuiZe_0x727/blob/master/imgs/ObserverWard1.png"><img src="https://github.com/0x727/ShuiZe_0x727/raw/master/imgs/ObserverWard1.png" alt="img"></a></p>
+<h2 id="0x08-反馈"><a href="#0x08-反馈" class="headerlink" title="0x08 反馈"></a>0x08 反馈</h2><p>ShuiZe（水泽） 是一个免费且开源的项目，我们欢迎任何人为其开发和进步贡献力量。</p>
+<ul>
+<li>在使用过程中出现任何问题，可以通过 issues 来反馈。</li>
+<li>Bug 的修复可以直接提交 Pull Request 到 dev 分支。</li>
+<li>如果是增加新的功能特性，请先创建一个 issue 并做简单描述以及大致的实现方法，提议被采纳后，就可以创建一个实现新特性的 Pull Request。</li>
+<li>欢迎对说明文档做出改善，帮助更多的人使用 ShuiZe。</li>
+<li>贡献代码请提交 PR 至 dev 分支，master 分支仅用于发布稳定可用版本。</li>
+</ul>
+<p><em>提醒：和项目相关的问题最好在 issues 中反馈，这样方便其他有类似问题的人可以快速查找解决方法，并且也避免了我们重复回答一些问题。</em></p>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2024/03/10/24-S-inject-%E6%96%B0%E7%9A%84%E5%85%8D%E6%9D%80/" title="DLL+Shellcode的Windows注入免杀工具"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">上一页: DLL+Shellcode的Windows注入免杀工具</span></a><a class="button is-default" href="/2024/03/07/32-Webshell%E5%85%8D%E6%9D%80/" title="Webshell_Generate-支持生成Webshell并且自带免杀!"><span class="has-text-weight-semibold">下一页: Webshell_Generate-支持生成Webshell并且自带免杀!</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="Haojen/Claudia-theme-blog" src="https://utteranc.es/client.js" issue-term="pathname" theme="preferred-color-scheme"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/Sgyling"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> 疯狂的杨CC 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>

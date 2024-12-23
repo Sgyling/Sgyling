@@ -1,0 +1,306 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-CN"><head><meta charset="UTF-8"><title>scan4all-支持15000+poc漏洞的扫描工具</title><meta name="description" content="黑客常用工具"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><script>var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?" + '011aebf2f9f9f3201930e159bcd66b17';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();</script><!-- End Baidu Analytics --><link rel="icon" href="https://pic.imgdb.cn/item/6639fa110ea9cb14038250f2.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="15000+POC漏洞扫描工具POC是什么Proof Of Concept的缩写。在黑客圈指：观点验证程序。运行这个程序就可以得出预期的结果，也就验证了观点。链接：https://github.com/GhostTroops/scan4all
+下载链接https://github.com/GhostTroops/scan4all/releases
+安装教程https://github.com/GhostTroops/scan4all/blob/main/static/Installation.md
+编译sudo apt install -y libpcap-dev golang gitgit clone https://github.com/hktalent/scan4all.gitcd scan4allg.."><meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="杨CC的工具集合" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">疯狂的杨CC's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">scan4all-支持15000+poc漏洞的扫描工具</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#15000-POC%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7"><span class="toc-text">15000+POC漏洞扫描工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#POC%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">POC是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Proof-Of-Concept%E7%9A%84%E7%BC%A9%E5%86%99%E3%80%82%E5%9C%A8%E9%BB%91%E5%AE%A2%E5%9C%88%E6%8C%87%EF%BC%9A%E8%A7%82%E7%82%B9%E9%AA%8C%E8%AF%81%E7%A8%8B%E5%BA%8F%E3%80%82%E8%BF%90%E8%A1%8C%E8%BF%99%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%87%BA%E9%A2%84%E6%9C%9F%E7%9A%84%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%B9%9F%E5%B0%B1%E9%AA%8C%E8%AF%81%E4%BA%86%E8%A7%82%E7%82%B9%E3%80%82"><span class="toc-text">Proof Of Concept的缩写。在黑客圈指：观点验证程序。运行这个程序就可以得出预期的结果，也就验证了观点。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="toc-text">链接：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"><span class="toc-text">下载链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B"><span class="toc-text">安装教程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-text">编译</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9C%A8%E8%BF%90%E8%A1%8Cscan4all%E4%B9%8B%E5%89%8D%EF%BC%8C%E4%BD%A0%E5%BF%85%E9%A1%BB%E5%85%88%E5%AE%89%E8%A3%85libpcap%E5%BA%93"><span class="toc-text">1.在运行scan4all之前，你必须先安装libpcap库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%89%8D%E5%BE%80-https-github-com-hktalent-scan4all-releases-%E4%B8%8B%E8%BD%BDscan4all%E6%9C%80%E6%96%B0%E7%89%88%E8%BF%90%E8%A1%8C"><span class="toc-text">2.前往 https:&#x2F;&#x2F;github.com&#x2F;hktalent&#x2F;scan4all&#x2F;releases&#x2F; 下载scan4all最新版运行:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nmap%E5%AE%98%E7%BD%91"><span class="toc-text">nmap官网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu-kali%E2%80%93debian%E7%B3%BB%E5%88%97"><span class="toc-text">ubuntu\kali–debian系列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#centos-renhat-%E7%BA%A2%E5%B8%BD%E7%B3%BB%E5%88%97"><span class="toc-text">centos\renhat-红帽系列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#manjaro-blackarch%E2%80%93arch%E7%B3%BB%E5%88%97"><span class="toc-text">manjaro&#x2F;blackarch–arch系列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aur"><span class="toc-text">aur</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-text">特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nuclei-Templates-Top-10-statistics"><span class="toc-text">Nuclei Templates Top 10 statistics</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90"><i class="tag post-item-tag">渗透工具推荐</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">scan4all-支持15000+poc漏洞的扫描工具</h1><time class="has-text-grey" datetime="2024-02-24T08:14:46.000Z">2024-02-24</time><article class="mt-2 post-content"><h1 id="15000-POC漏洞扫描工具"><a href="#15000-POC漏洞扫描工具" class="headerlink" title="15000+POC漏洞扫描工具"></a>15000+POC漏洞扫描工具</h1><h2 id="POC是什么"><a href="#POC是什么" class="headerlink" title="POC是什么"></a>POC是什么</h2><h3 id="Proof-Of-Concept的缩写。在黑客圈指：观点验证程序。运行这个程序就可以得出预期的结果，也就验证了观点。"><a href="#Proof-Of-Concept的缩写。在黑客圈指：观点验证程序。运行这个程序就可以得出预期的结果，也就验证了观点。" class="headerlink" title="Proof Of Concept的缩写。在黑客圈指：观点验证程序。运行这个程序就可以得出预期的结果，也就验证了观点。"></a>Proof Of Concept的缩写。<em>在黑客圈指：观点验证程序</em>。运行这个程序就可以得出预期的结果，也就验证了观点。</h3><h1 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h1><p><a href="https://github.com/GhostTroops/scan4all">https://github.com/GhostTroops/scan4all</a></p>
+<h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h2><p><a href="https://github.com/GhostTroops/scan4all/releases">https://github.com/GhostTroops/scan4all/releases</a></p>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p><a href="https://github.com/GhostTroops/scan4all/blob/main/static/Installation.md">https://github.com/GhostTroops/scan4all/blob/main/static/Installation.md</a></p>
+<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><p>sudo apt install -y libpcap-dev golang git<br>git clone <a href="https://github.com/hktalent/scan4all.git">https://github.com/hktalent/scan4all.git</a><br>cd scan4all<br>go build</p>
+<h2 id="1-在运行scan4all之前，你必须先安装libpcap库"><a href="#1-在运行scan4all之前，你必须先安装libpcap库" class="headerlink" title="1.在运行scan4all之前，你必须先安装libpcap库"></a>1.在运行scan4all之前，你必须先安装libpcap库</h2><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># ubuntu、linux</span><br><span class="line">apt update</span><br><span class="line">apt install -yy libpcap0.8-dev</span><br><span class="line">sudo apt install -y libpcap-dev</span><br><span class="line"># cent os</span><br><span class="line">yum install -yy glibc-devel.x86_64</span><br><span class="line">yum install -yy libpcap</span><br><span class="line"># mac os</span><br><span class="line">brew install libpcap</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="2-前往-https-github-com-hktalent-scan4all-releases-下载scan4all最新版运行"><a href="#2-前往-https-github-com-hktalent-scan4all-releases-下载scan4all最新版运行" class="headerlink" title="2.前往 https://github.com/hktalent/scan4all/releases/ 下载scan4all最新版运行:"></a>2.前往 <a href="https://github.com/hktalent/scan4all/releases/">https://github.com/hktalent/scan4all/releases/</a> 下载scan4all最新版运行:</h2><h2 id="nmap官网"><a href="#nmap官网" class="headerlink" title="nmap官网"></a>nmap官网</h2><p><a href="https://nmap.org/">https://nmap.org/</a></p>
+<h2 id="ubuntu-kali–debian系列"><a href="#ubuntu-kali–debian系列" class="headerlink" title="ubuntu\kali–debian系列"></a>ubuntu\kali–debian系列</h2><p>sudo apt-get install nmap</p>
+<p>sudo apt-get install golang-go</p>
+<h2 id="centos-renhat-红帽系列"><a href="#centos-renhat-红帽系列" class="headerlink" title="centos\renhat-红帽系列"></a>centos\renhat-红帽系列</h2><p>sudo yum install -y nmap</p>
+<p>sudo yum install -y  golang &amp;&amp; sudo yum install -y go</p>
+<h2 id="manjaro-blackarch–arch系列"><a href="#manjaro-blackarch–arch系列" class="headerlink" title="manjaro/blackarch–arch系列"></a>manjaro/blackarch–arch系列</h2><p>sudo pacman -S nmap </p>
+<p>sudo pacman -S golang-go &amp;&amp; sudo pacman -S golang-dev</p>
+<h2 id="aur"><a href="#aur" class="headerlink" title="aur"></a>aur</h2><p>yay -S nmap </p>
+<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p>Vulnerabilities Scan；15000+PoC漏洞扫描；[ 23 ] 种应用弱口令爆破；7000+Web指纹；146种协议90000+规则Port扫描；Fuzz、HW打点、BugBounty神器…</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/PJG3jJlPv0zkpk1Xic2TUdUUF1iadG5s3cdbxotp5DgJ7UjqD4ic90eRC8A0zwjeb371OhlmtMsOUV2Dtfl8FzTrA/640?wx_fmt=png&amp;from=appmsg&amp;wxfrom=13" alt="图片"></h1><ul>
+<li><p>什么是scan4all：集成 vscan、nuclei、ksubdomain、subfinder等，充分自动化、智能化 并对这些集成的项目进行代码级别优化、参数优化，个别模块,如 vscan filefuzz部分进行了重写<br>原则上不重复造轮子，除非存在bug、问题</p>
+</li>
+<li><p>跨平台：基于golang实现，轻量级、高度可定制、开源，支持Linux、windows、mac os等(go tool dist list)46种不同芯片架构、14种操作系统</p>
+</li>
+<li><p>支持[ 23 ] 种密码爆破，支持自定义字典, 通过 “priorityNmap”: true 开启</p>
+</li>
+<li><ul>
+<li>RDP</li>
+<li>VNC</li>
+<li>SSH</li>
+<li>Socks5</li>
+<li>rsh-spx</li>
+<li>Mysql</li>
+<li>MsSql</li>
+<li>Oracle</li>
+<li>Postgresql</li>
+<li>Redis</li>
+<li>FTP</li>
+<li>Mongodb</li>
+<li>SMB,同时检测 MS17-010（CVE-2017-0143、CVE-2017-0144、CVE-2017-0145、CVE-2017-0146、CVE-2017-0147、CVE-2017-0148）、SmbGhost（CVE-2020-0796）、DCOM(msrpc, port 135, Oxid Scan)</li>
+<li>Telnet</li>
+<li>Snmp</li>
+<li>Wap-wsp（Elasticsearch）</li>
+<li>RouterOs</li>
+<li>HTTP BasicAuth(HttpBasic,Authorization), contains Webdav、SVN（Apache Subversion） crack</li>
+<li>Weblogic，同时通过 enableNuclei=true 开启nuclei，支持T3、IIOP等检测</li>
+<li>Tomcat</li>
+<li>Jboss</li>
+<li>Winrm(wsman)</li>
+<li>POP3/POP3S</li>
+</ul>
+</li>
+<li><p>默认开启http密码智能爆破，需要 HTTP 密码时才会自动启动，无需人工干预</p>
+</li>
+<li><p>检测系统是否存在 nmap ，存在通过 priorityNmap=true 启用 nmap 进行快速扫描，默认开启，优化过的 nmap 参数比 masscan 快 使用 nmap 的弊端：网络不好的是否，因为流量网络包过大可能会导致结果不全 使用 nmap 另外需要将 root 密码设置到环境变量</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PPSSWWDD=yourRootPswd</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>更多参考：config/doNmapScan.sh 默认使用 naabu 完成端口扫描 -stats=true 可以查看扫描进度 能否不扫描端口 ？跳过端口扫描，意外做基于端口指纹进行密码爆破的检测将失效，密码破解功能也一并被跳过</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">noScan=true  ./scan4all -l list.txt  -v</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<ul>
+<li>支持直接使用 nmap xml结果输入：</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scan4all -l nmapScanResults.xml  -v</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<ul>
+<li><p>快速 15000+ POC 检测功能，PoCs包含：</p>
+<h2 id="Nuclei-Templates-Top-10-statistics"><a href="#Nuclei-Templates-Top-10-statistics" class="headerlink" title="Nuclei Templates Top 10 statistics"></a>Nuclei Templates Top 10 statistics</h2></li>
+<li><ul>
+<li>nuclei POC</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>TAG</th>
+<th>COUNT</th>
+<th>AUTHOR</th>
+<th>COUNT</th>
+<th>DIRECTORY</th>
+<th>COUNT</th>
+<th>SEVERITY</th>
+<th>COUNT</th>
+<th>TYPE</th>
+<th>COUNT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cve</td>
+<td>1430</td>
+<td>daffainfo</td>
+<td>631</td>
+<td>cves</td>
+<td>1407</td>
+<td>info</td>
+<td>1474</td>
+<td>http</td>
+<td>3858</td>
+</tr>
+<tr>
+<td>panel</td>
+<td>655</td>
+<td>dhiyaneshdk</td>
+<td>584</td>
+<td>exposed-panels</td>
+<td>662</td>
+<td>high</td>
+<td>1009</td>
+<td>file</td>
+<td>76</td>
+</tr>
+<tr>
+<td>edb</td>
+<td>563</td>
+<td>pikpikcu</td>
+<td>329</td>
+<td>vulnerabilities</td>
+<td>509</td>
+<td>medium</td>
+<td>818</td>
+<td>network</td>
+<td>51</td>
+</tr>
+<tr>
+<td>lfi</td>
+<td>509</td>
+<td>pdteam</td>
+<td>269</td>
+<td>technologies</td>
+<td>282</td>
+<td>critical</td>
+<td>478</td>
+<td>dns</td>
+<td>17</td>
+</tr>
+<tr>
+<td>xss</td>
+<td>491</td>
+<td>geeknik</td>
+<td>187</td>
+<td>exposures</td>
+<td>275</td>
+<td>low</td>
+<td>225</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>wordpress</td>
+<td>419</td>
+<td>dwisiswant0</td>
+<td>169</td>
+<td>misconfiguration</td>
+<td>237</td>
+<td>unknown</td>
+<td>11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>exposure</td>
+<td>407</td>
+<td>0x_akoko</td>
+<td>165</td>
+<td>token-spray</td>
+<td>230</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cve2021</td>
+<td>352</td>
+<td>princechaddha</td>
+<td>151</td>
+<td>workflows</td>
+<td>189</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>rce</td>
+<td>337</td>
+<td>ritikchaddha</td>
+<td>137</td>
+<td>default-logins</td>
+<td>103</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>wp-plugin</td>
+<td>316</td>
+<td>pussycat0x</td>
+<td>133</td>
+<td>file</td>
+<td>76</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>281 directories, 3922 files.</p>
+<ul>
+<li><p>vscan POC</p>
+</li>
+<li><ul>
+<li>vscan POC包含了：xray 2.0 300+ POC、 go POC等；特别注意，xray POC检测需要有指纹命中后才会触发检测</li>
+</ul>
+</li>
+<li><p>scan4all POC</p>
+</li>
+<li><p>支持 7000+ web 指纹扫描、识别：</p>
+</li>
+<li><ul>
+<li>vscan 指纹：包含 eHoleFinger、 localFinger等</li>
+<li>httpx 指纹</li>
+<li>vscan 指纹</li>
+<li>scan4all 指纹</li>
+</ul>
+</li>
+<li><p>支持146种协议90000+规则port扫描</p>
+</li>
+<li><ul>
+<li>依赖nmap支持的协议、指纹</li>
+</ul>
+</li>
+<li><p>快速HTTP敏感文件检测，可以自定义字典</p>
+</li>
+<li><p>登陆页面检测</p>
+</li>
+<li><p>支持多种类型的输入 - STDIN/HOST/IP/CIDR/URL/TXT</p>
+</li>
+<li><p>支持多种输出类型 - JSON/TXT/CSV/STDOUT</p>
+</li>
+<li><p>高度可集成：可配置将结果统一存储到 Elasticsearch【强烈推荐】</p>
+</li>
+<li><p>智能SSL分析：</p>
+</li>
+<li><ul>
+<li>深入分析，自动关联SSL信息中域名的扫描，如*.xxx.com，并根据配置完成子域遍历，结果自动添加目标到扫描列表</li>
+<li>支持开启智能SSL信息中*.xx.com子域遍历功能， export EnableSubfinder=true，或者在配置文件中调整</li>
+</ul>
+</li>
+<li><p>自动识别域（DNS）关联多个IP的情况，并自动扫描关联的多个IP</p>
+</li>
+<li><p>智能处理：</p>
+</li>
+<li><ul>
+<li>1、当列表中多个域名的ip相同时，合并端口扫描，提高效率</li>
+<li>2、智能处理http异常页面、及指纹计算和学习</li>
+</ul>
+</li>
+<li><p>自动化供应链识别、分析和扫描</p>
+</li>
+<li><p>联动 python3 log4j-scan</p>
+</li>
+<li><ul>
+<li>该版本屏蔽你目标信息传递到 DNS Log Server 的bug，避免暴露漏洞</li>
+<li>增加了将结果发送到 Elasticsearch 的功能，便于批量、盲打</li>
+<li>未来有时间了再实现golang版本 如何使用？</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/MyWork/;cd ~/MyWork/;git clone  https://github.com/hktalent/log4j-scan</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<ul>
+<li>智能识别蜜罐，并跳过目标，默认该功能是关闭的，可设置EnableHoneyportDetection=true开启</li>
+<li>高度可定制：允许通过config/config.json配置定义自己的字典，或者控制更多细节，包含不限于:nuclei、httpx、naabu等</li>
+<li>支持HTTP请求走私漏洞检测: CL-TE、TE-CL、TE-TE、CL_CL、BaseErr</li>
+</ul>
+<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/PJG3jJlPv0zkpk1Xic2TUdUUF1iadG5s3cjUJMb3rejdart5SUCu6lxWPDPLKeNtLKUficlJJgCvsUpHxaAKSkkNg/640?wx_fmt=png&amp;from=appmsg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<ul>
+<li>支持 通过参数 Cookie=’PHPSession=xxxx’ ./scan4all -host xxxx.com, 兼容 nuclei、httpx、go-poc、x-ray POC、filefuzz、http Smuggling等</li>
+</ul>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2024/02/24/33-zpscan-%E7%BB%BC%E5%90%88%E6%80%A7%E5%BC%BA%E5%8F%88%E5%A5%BD%E7%94%A8%E7%9A%84%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E5%85%B7/" title="zpscan-综合性强又好用的信息收集工具"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">上一页: zpscan-综合性强又好用的信息收集工具</span></a><a class="button is-default" href="/2024/02/24/7-apk2url/" title="apk2url-自动提取apk中的ip和域名"><span class="has-text-weight-semibold">下一页: apk2url-自动提取apk中的ip和域名</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="Haojen/Claudia-theme-blog" src="https://utteranc.es/client.js" issue-term="pathname" theme="preferred-color-scheme"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/Sgyling"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> 疯狂的杨CC 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>

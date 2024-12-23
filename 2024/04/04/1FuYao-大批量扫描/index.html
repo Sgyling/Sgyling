@@ -1,0 +1,91 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-CN"><head><meta charset="UTF-8"><title>FuYao-大批量自动扫描漏洞</title><meta name="description" content="黑客常用工具"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><script>var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?" + '011aebf2f9f9f3201930e159bcd66b17';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();</script><!-- End Baidu Analytics --><link rel="icon" href="https://pic.imgdb.cn/item/6639fa110ea9cb14038250f2.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="FuYao - Go 扶摇直上九万里 - 不再开源 维护中…https://github.com/ExpLangcn/FuYao-Go
+😄 I’m ExpLang Twitter 欢迎关注fo～问题反馈|漏洞列表自动化进行目标资产探测和安全漏洞扫描｜适用于赏金活动、SRC活动、大规模使用、大范围使用|通过使用被动在线资源来发现网站的有效子域｜使用零误报的定制模板向目标发送请求，同时可以对大量主机进行快速扫描。｜提供TCP、DNS、HTTP、FILE等各类协议的扫描，通过强大且灵活的模板，模拟各种安全检查
+
+
+法律免责声明本工具仅面向合法授权的企业安全建设行为，如您需要测试本工具的可用性，请自行搭建靶机环境。 在使用本工具进行检测时，您应确保该行为符合当地的法律法规，并且已经取得了足够的授权。请勿对非授权目.."><meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="杨CC的工具集合" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">疯狂的杨CC's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">FuYao-大批量自动扫描漏洞</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">所有文章</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FuYao-Go-%E6%89%B6%E6%91%87%E7%9B%B4%E4%B8%8A%E4%B9%9D%E4%B8%87%E9%87%8C-%E4%B8%8D%E5%86%8D%E5%BC%80%E6%BA%90-%E7%BB%B4%E6%8A%A4%E4%B8%AD%E2%80%A6"><span class="toc-text">FuYao - Go 扶摇直上九万里 - 不再开源 维护中…</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%98%84-I%E2%80%99m-ExpLang-Twitter-%E6%AC%A2%E8%BF%8E%E5%85%B3%E6%B3%A8fo%EF%BD%9E"><span class="toc-text">😄 I’m ExpLang Twitter 欢迎关注fo～</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88-%E6%BC%8F%E6%B4%9E%E5%88%97%E8%A1%A8"><span class="toc-text">问题反馈|漏洞列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%95%E5%BE%8B%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E"><span class="toc-text">法律免责声明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95"><span class="toc-text">更新记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E5%8A%9F%E8%83%BD-or-%E6%9C%AA%E6%9D%A5%E5%8A%9F%E8%83%BD"><span class="toc-text">当前功能 or 未来功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E5%89%8DPOC%E5%88%97%E8%A1%A8"><span class="toc-text">当前POC列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B%E8%AF%A6%E6%83%85"><span class="toc-text">点击查看详情</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9"><span class="toc-text">使用帮助</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8Windows%E7%B3%BB%E7%BB%9F%EF%BC%81"><span class="toc-text">不推荐使用Windows系统！</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-text">配置信息</span></a></li></ol></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90"><i class="tag post-item-tag">渗透工具推荐</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">FuYao-大批量自动扫描漏洞</h1><time class="has-text-grey" datetime="2024-04-04T08:14:46.000Z">2024-04-04</time><article class="mt-2 post-content"><h1 id="FuYao-Go-扶摇直上九万里-不再开源-维护中…"><a href="#FuYao-Go-扶摇直上九万里-不再开源-维护中…" class="headerlink" title="FuYao - Go 扶摇直上九万里 - 不再开源 维护中…"></a>FuYao - Go 扶摇直上九万里 - 不再开源 维护中…</h1><p><a href="https://github.com/ExpLangcn/FuYao-Go">https://github.com/ExpLangcn/FuYao-Go</a></p>
+<h4 id="😄-I’m-ExpLang-Twitter-欢迎关注fo～"><a href="#😄-I’m-ExpLang-Twitter-欢迎关注fo～" class="headerlink" title="😄 I’m ExpLang Twitter 欢迎关注fo～"></a>😄 I’m ExpLang <a href="https://twitter.com/ExpLang_Cn"><strong>Twitter</strong></a> 欢迎关注fo～</h4><h2 id="问题反馈-漏洞列表"><a href="#问题反馈-漏洞列表" class="headerlink" title="问题反馈|漏洞列表"></a><a href="https://github.com/ExpLangcn/FuYao-Go/issues">问题反馈</a>|<a href="https://github.com/ExpLangcn/FuYao-Go/blob/main/README.md#%E6%BC%8F%E6%B4%9E%E5%88%97%E8%A1%A8">漏洞列表</a></h2><p><strong>自动化进行目标资产探测和安全漏洞扫描｜适用于赏金活动、SRC活动、大规模使用、大范围使用|通过使用被动在线资源来发现网站的有效子域｜使用零误报的定制模板向目标发送请求，同时可以对大量主机进行快速扫描。｜提供TCP、DNS、HTTP、FILE等各类协议的扫描，通过强大且灵活的模板，模拟各种安全检查</strong></p>
+<p><a href="https://user-images.githubusercontent.com/52586866/168596909-c0f95cff-1460-4af7-8d4a-7e5afde3f30e.png"><img src="https://user-images.githubusercontent.com/52586866/168596909-c0f95cff-1460-4af7-8d4a-7e5afde3f30e.png" alt="image"></a></p>
+<p><a href="https://user-images.githubusercontent.com/52586866/168596925-b2a50a21-df0a-433d-8424-cd2d5386b5be.png"><img src="https://user-images.githubusercontent.com/52586866/168596925-b2a50a21-df0a-433d-8424-cd2d5386b5be.png" alt="image"></a></p>
+<h2 id="法律免责声明"><a href="#法律免责声明" class="headerlink" title="法律免责声明"></a>法律免责声明</h2><p>本工具仅面向合法授权的企业安全建设行为，如您需要测试本工具的可用性，请自行搭建靶机环境。 在使用本工具进行检测时，您应确保该行为符合当地的法律法规，并且已经取得了足够的授权。请勿对非授权目标进行扫描。 如果发现上述禁止行为，我们将保留追究您法律责任的权利。</p>
+<p>如您在使用本工具的过程中存在任何非法行为，您需自行承担相应后果，我们将不承担任何法律及连带责任. 您的使用行为或者您以其他任何明示或者默示方式表示接受本协议的，即视为您已阅读并同意本协议的约束。</p>
+<hr>
+<h3 id="更新记录"><a href="#更新记录" class="headerlink" title="更新记录"></a>更新记录</h3><p><strong>2022.6.6 14.59</strong></p>
+<ul>
+<li>新增Hunter网络测绘扫描</li>
+<li>新增 <code>-p</code> 参数 可以指定漏洞文件夹（采用xray漏洞模版,如果直接拿过来，语言name改为id ,Details改为 info,不支持cache ）</li>
+</ul>
+<p><strong>2022.5.16 20:45</strong></p>
+<ul>
+<li>发布V1.3.2版本</li>
+<li>修复个别情况无法进行Shodan扫描</li>
+<li>新增Quake资产获取</li>
+<li>优化存活验证逻辑</li>
+<li>新增端口探测（探测完子域名后会进行存活探测，存活探测的同时会进行端口探测）</li>
+<li>优化输出信息</li>
+<li>新增新版本检查（在启动LOGO上可以看到最新版本）</li>
+</ul>
+<p><strong>2022.5.11 12:10</strong></p>
+<ul>
+<li>发布V1.3版本</li>
+<li>子域名探测效率提升</li>
+<li>新增自动FoFa资产探测</li>
+<li>新增自动Shodan资产探测</li>
+<li>更换漏洞库和验证库 - <a href="https://github.com/ExpLangcn/FuYao-Go">Afrog</a></li>
+<li>新增指纹探测识别</li>
+</ul>
+<p><strong>2022.4.15 17:10</strong></p>
+<ul>
+<li>发布V1.1版本</li>
+<li>修复Windows下 file missing [file=MANIFEST-000000] 错误</li>
+<li>修复Windows下 no valid templates were found 报错</li>
+<li>优化扫描并发配置</li>
+</ul>
+<p><strong>2022.4.15 12:00</strong></p>
+<ul>
+<li>发布 v1.0版本</li>
+</ul>
+<hr>
+<h3 id="当前功能-or-未来功能"><a href="#当前功能-or-未来功能" class="headerlink" title="当前功能 or 未来功能"></a>当前功能 or 未来功能</h3><ul>
+<li>子域名枚举资产收集</li>
+<li>批量子域名枚举资产收集</li>
+<li>Chaos 资产收集</li>
+<li>资产存活验证</li>
+<li>批量资产存活验证</li>
+<li>安全漏洞验证</li>
+<li>批量安全漏洞验证</li>
+<li>子域名枚举资产收集、资产存活验证、安全漏洞扫描联动</li>
+<li>FoFa自动资产探测</li>
+<li>Shodan自动资产探测</li>
+<li>Web指纹探测识别</li>
+<li>网络空间测绘资产收集</li>
+<li>中间件漏洞利用例：shiro、SpringBoot等…</li>
+<li>Hunter自动资产探测</li>
+<li>子域名存活WebHook通知</li>
+<li>安全漏洞扫描结果WebHook通知</li>
+<li>待定…</li>
+</ul>
+<p><strong>有需要什么功能的话可以在 <a href="https://github.com/ExpLangcn/FuYao-Go/issues">issues</a> 提</strong></p>
+<hr>
+<h3 id="当前POC列表"><a href="#当前POC列表" class="headerlink" title="当前POC列表"></a>当前POC列表</h3><h4 id="点击查看详情"><a href="#点击查看详情" class="headerlink" title="点击查看详情"></a><a href="https://github.com/ExpLangcn/FuYao-Go/blob/main/README.md#%E6%BC%8F%E6%B4%9E%E5%88%97%E8%A1%A8">点击查看详情</a></h4><p>当前总共有：<strong>549个POC模版</strong></p>
+<p><a href="https://user-images.githubusercontent.com/52586866/167674307-3a3e39f9-3a76-4132-ba23-7bff624307e3.png"><img src="https://user-images.githubusercontent.com/52586866/167674307-3a3e39f9-3a76-4132-ba23-7bff624307e3.png" alt="image"></a></p>
+<hr>
+<h3 id="使用帮助"><a href="#使用帮助" class="headerlink" title="使用帮助"></a>使用帮助</h3><h4 id="不推荐使用Windows系统！"><a href="#不推荐使用Windows系统！" class="headerlink" title="不推荐使用Windows系统！"></a>不推荐使用Windows系统！</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">./mark/FuYao_Intel/FuYao_Intel -h                                                                                                                                                                          FuYao_test</span><br><span class="line">  ███████╗██╗   ██╗██╗   ██╗ █████╗  ██████╗</span><br><span class="line">  ██╔════╝██║   ██║╚██╗ ██╔╝██╔══██╗██╔═══██╗</span><br><span class="line">  █████╗  ██║   ██║ ╚████╔╝ ███████║██║   ██║</span><br><span class="line">  ██╔══╝  ██║   ██║  ╚██╔╝  ██╔══██║██║   ██║  Version: V1.3</span><br><span class="line">  ██║     ╚██████╔╝   ██║   ██║  ██║╚██████╔╝  Author: ExpLang</span><br><span class="line">  ╚═╝      ╚═════╝    ╚═╝   ╚═╝  ╚═╝ ╚═════╝   Discord: ExpLang#6666</span><br><span class="line">     Github:github.com/ExpLangcn/FuYao-Go</span><br><span class="line"> 使用FuYao前请遵守当地法律,FuYao仅提供给教育行为使用</span><br><span class="line"></span><br><span class="line"> 法律免责声明</span><br><span class="line">  本工具仅面向合法授权的企业安全建设行为，如您需要测试本工具的可用性，请自行搭建靶机环境。</span><br><span class="line">  在使用本工具进行检测时，您应确保该行为符合当地的法律法规，并且已经取得了足够的授权。请勿对非授权目标进行扫描。</span><br><span class="line">  如果发现上述禁止行为，我们将保留追究您法律责任的权利。</span><br><span class="line"></span><br><span class="line">  如您在使用本工具的过程中存在任何非法行为，您需自行承担相应后果，我们将不承担任何法律及连带责任.</span><br><span class="line">  您的使用行为或者您以其他任何明示或者默示方式表示接受本协议的，即视为您已阅读并同意本协议的约束。</span><br><span class="line"></span><br><span class="line">Usage of ./mark/FuYao_Intel/FuYao_Intel:</span><br><span class="line">  -f string</span><br><span class="line">        指定根域目标文件 ｜ 支持绝对路径和相对路径</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><strong>自动化信息搜集+漏洞扫描</strong>(目标文件内的目标是一行一个，并且必须是主域名)</p>
+<blockquote>
+<p>./FuYao -f list.txt</p>
+</blockquote>
+<hr>
+<h3 id="配置信息"><a href="#配置信息" class="headerlink" title="配置信息"></a>配置信息</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FoFa:</span><br><span class="line">  email: ""</span><br><span class="line">  key: ""</span><br><span class="line">Shodan:</span><br><span class="line">  key: ""</span><br></pre></td></tr></tbody></table></figure></article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2024/04/21/45-%E8%BF%9C%E7%A8%8B/" title="神级别的远控工具-渗透必备的远控工具"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">上一页: 神级别的远控工具-渗透必备的远控工具</span></a><a class="button is-default" href="/2024/04/01/31-WAFW00F-%E9%98%B2%E7%81%AB%E5%A2%99/" title="帮你识别目标防火墙的工具"><span class="has-text-weight-semibold">下一页: 帮你识别目标防火墙的工具</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="Haojen/Claudia-theme-blog" src="https://utteranc.es/client.js" issue-term="pathname" theme="preferred-color-scheme"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/Sgyling"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> 疯狂的杨CC 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>
