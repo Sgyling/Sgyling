@@ -135,33 +135,6 @@
     
     
     <entry>
-      <title>60-一款功能强大的在线字典-SocialEngineeringDictionaryGenerator</title>
-      <link href="/2024/05/30/60-%E4%B8%80%E6%AC%BE%E5%8A%9F%E8%83%BD%E5%BC%BA%E5%A4%A7%E7%9A%84%E5%9C%A8%E7%BA%BF%E5%AD%97%E5%85%B8/"/>
-      <url>/2024/05/30/60-%E4%B8%80%E6%AC%BE%E5%8A%9F%E8%83%BD%E5%BC%BA%E5%A4%A7%E7%9A%84%E5%9C%A8%E7%BA%BF%E5%AD%97%E5%85%B8/</url>
-      
-        <content type="html"><![CDATA[<h1 id="社会工程学密码生成器"><a href="#社会工程学密码生成器" class="headerlink" title="社会工程学密码生成器"></a>社会工程学密码生成器</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在线链接:<a href="https://yancy77.cn/zidian/index.html">https://yancy77.cn/zidian/index.html</a></p><p>社会工程学密码生成器，是一个利用个人信息生成密码的工具，灵感源于亦思社会工程学字典生成器，但是该软件多年未更新，且生成的密码过少，故根据其构思重新做了一个。</p><p>所有代码均开源于<a href="https://github.com/zgjx6/SocialEngineeringDictionaryGenerator">Github</a>, 功能均使用原生js实现, 不会访问任何外部资源, 可以尝试使用自己的信息测试效果, 配合常用的弱密码效果更佳，如有问题请<a href="https://github.com/zgjx6/SocialEngineeringDictionaryGenerator/issues">提交issue</a>。</p><p><a href="https://github.com/zgjx6/SocialEngineeringDictionaryGenerator/blob/master/preview.jpg"><img src="https://github.com/zgjx6/SocialEngineeringDictionaryGenerator/raw/master/preview.jpg" alt="预览图"></a></p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>直接下载<a href="https://github.com/zgjx6/SocialEngineeringDictionaryGenerator/blob/master/index.html">index.html</a>在浏览器打开即可</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 工具推荐 </category>
-          
-          <category> 在线字典生成 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 渗透工具推荐 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>59-专业黑客都在用的信息收集工具</title>
       <link href="/2024/05/23/59-%E4%B8%93%E4%B8%9A%E9%BB%91%E5%AE%A2%E9%83%BD%E5%9C%A8%E7%94%A8%E7%9A%84%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E5%85%B7/"/>
       <url>/2024/05/23/59-%E4%B8%93%E4%B8%9A%E9%BB%91%E5%AE%A2%E9%83%BD%E5%9C%A8%E7%94%A8%E7%9A%84%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E5%85%B7/</url>
